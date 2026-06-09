@@ -8,3 +8,4 @@
 @use 'base';        // palette (HSL), typography, tasks, Style Settings + backings
 @use 'properties';  // frontmatter / properties block
 @use 'callouts';    // callouts — ember-tinted, per-type
+@use 'code';        // code blocks + syntax highlighting

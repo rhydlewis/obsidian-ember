@@ -1195,3 +1195,136 @@ body.ember-callouts .callout-fold, body:not(.css-settings-manager) .callout-fold
 body.ember-callouts .callout-content, body:not(.css-settings-manager) .callout-content {
   padding: var(--size-4-2) var(--size-4-3);
 }
+
+/* ---- Ember syntax palette (--code-* token vars) ---- */
+body.ember-codeblocks.theme-dark,
+body:not(.css-settings-manager).theme-dark {
+  --code-comment: var(--ember-faint);
+  --code-keyword: #e8732c; /* ember  */
+  --code-function: #ffc26a; /* amber  */
+  --code-string: #8bd17a; /* green  */
+  --code-property: #5fd6c2; /* teal   */
+  --code-operator: #c0a98f; /* warm muted */
+  --code-punctuation: var(--ember-dim);
+  --code-tag: #f06a5d; /* red    */
+  --code-important: #f06a5d;
+  --code-value: #b388ff; /* purple (numbers/constants) */
+  --code-normal: var(--ember-text);
+}
+
+body.ember-codeblocks.theme-light,
+body:not(.css-settings-manager).theme-light {
+  --code-comment: #9a8b7d;
+  --code-keyword: #b8410f;
+  --code-function: #c8821a;
+  --code-string: #3f9a4e;
+  --code-property: #2a8d7d;
+  --code-operator: #8a6f53;
+  --code-punctuation: #6b5d50;
+  --code-tag: #d24b3f;
+  --code-important: #d24b3f;
+  --code-value: #7a4fd0;
+  --code-normal: #211913;
+}
+
+body.ember-codeblocks, body:not(.css-settings-manager) {
+  /* ---- Reading view (Prism) — route the tokens that don't already use --code-* ---- */
+}
+body.ember-codeblocks .markdown-rendered pre code .token.comment, body.ember-codeblocks .markdown-rendered pre code .token.prolog, body.ember-codeblocks .markdown-rendered pre code .token.cdata, body.ember-codeblocks .markdown-rendered pre code .token.doctype, body:not(.css-settings-manager) .markdown-rendered pre code .token.comment, body:not(.css-settings-manager) .markdown-rendered pre code .token.prolog, body:not(.css-settings-manager) .markdown-rendered pre code .token.cdata, body:not(.css-settings-manager) .markdown-rendered pre code .token.doctype {
+  color: var(--code-comment);
+  font-style: italic;
+}
+body.ember-codeblocks .markdown-rendered pre code .token.keyword, body.ember-codeblocks .markdown-rendered pre code .token.selector, body.ember-codeblocks .markdown-rendered pre code .token.atrule, body.ember-codeblocks .markdown-rendered pre code .token.important, body.ember-codeblocks .markdown-rendered pre code .token.namespace, body:not(.css-settings-manager) .markdown-rendered pre code .token.keyword, body:not(.css-settings-manager) .markdown-rendered pre code .token.selector, body:not(.css-settings-manager) .markdown-rendered pre code .token.atrule, body:not(.css-settings-manager) .markdown-rendered pre code .token.important, body:not(.css-settings-manager) .markdown-rendered pre code .token.namespace {
+  color: var(--code-keyword);
+}
+body.ember-codeblocks .markdown-rendered pre code .token.string, body.ember-codeblocks .markdown-rendered pre code .token.char, body.ember-codeblocks .markdown-rendered pre code .token.attr-value, body.ember-codeblocks .markdown-rendered pre code .token.regex, body.ember-codeblocks .markdown-rendered pre code .token.url, body.ember-codeblocks .markdown-rendered pre code .token.inserted, body:not(.css-settings-manager) .markdown-rendered pre code .token.string, body:not(.css-settings-manager) .markdown-rendered pre code .token.char, body:not(.css-settings-manager) .markdown-rendered pre code .token.attr-value, body:not(.css-settings-manager) .markdown-rendered pre code .token.regex, body:not(.css-settings-manager) .markdown-rendered pre code .token.url, body:not(.css-settings-manager) .markdown-rendered pre code .token.inserted {
+  color: var(--code-string);
+}
+body.ember-codeblocks .markdown-rendered pre code .token.function, body.ember-codeblocks .markdown-rendered pre code .token.class-name, body.ember-codeblocks .markdown-rendered pre code .token.builtin, body:not(.css-settings-manager) .markdown-rendered pre code .token.function, body:not(.css-settings-manager) .markdown-rendered pre code .token.class-name, body:not(.css-settings-manager) .markdown-rendered pre code .token.builtin {
+  color: var(--code-function);
+}
+body.ember-codeblocks .markdown-rendered pre code .token.number, body.ember-codeblocks .markdown-rendered pre code .token.boolean, body.ember-codeblocks .markdown-rendered pre code .token.constant, body.ember-codeblocks .markdown-rendered pre code .token.symbol, body:not(.css-settings-manager) .markdown-rendered pre code .token.number, body:not(.css-settings-manager) .markdown-rendered pre code .token.boolean, body:not(.css-settings-manager) .markdown-rendered pre code .token.constant, body:not(.css-settings-manager) .markdown-rendered pre code .token.symbol {
+  color: var(--code-value);
+}
+body.ember-codeblocks .markdown-rendered pre code .token.property, body.ember-codeblocks .markdown-rendered pre code .token.attr-name, body.ember-codeblocks .markdown-rendered pre code .token.variable, body.ember-codeblocks .markdown-rendered pre code .token.tag, body:not(.css-settings-manager) .markdown-rendered pre code .token.property, body:not(.css-settings-manager) .markdown-rendered pre code .token.attr-name, body:not(.css-settings-manager) .markdown-rendered pre code .token.variable, body:not(.css-settings-manager) .markdown-rendered pre code .token.tag {
+  color: var(--code-property);
+}
+body.ember-codeblocks .markdown-rendered pre code .token.operator, body.ember-codeblocks .markdown-rendered pre code .token.entity, body:not(.css-settings-manager) .markdown-rendered pre code .token.operator, body:not(.css-settings-manager) .markdown-rendered pre code .token.entity {
+  color: var(--code-operator);
+}
+body.ember-codeblocks .markdown-rendered pre code .token.punctuation, body:not(.css-settings-manager) .markdown-rendered pre code .token.punctuation {
+  color: var(--code-punctuation);
+}
+body.ember-codeblocks .markdown-rendered pre code .token.deleted, body:not(.css-settings-manager) .markdown-rendered pre code .token.deleted {
+  color: var(--code-important);
+}
+body.ember-codeblocks .markdown-rendered pre code .token.bold, body:not(.css-settings-manager) .markdown-rendered pre code .token.bold {
+  font-weight: 700;
+}
+body.ember-codeblocks .markdown-rendered pre code .token.italic, body:not(.css-settings-manager) .markdown-rendered pre code .token.italic {
+  font-style: italic;
+}
+body.ember-codeblocks, body:not(.css-settings-manager) {
+  /* ---- Live preview (CodeMirror) — scoped to code blocks ---- */
+}
+body.ember-codeblocks .HyperMD-codeblock .cm-comment, body.ember-codeblocks .HyperMD-codeblock .cm-comment.cm-meta, body:not(.css-settings-manager) .HyperMD-codeblock .cm-comment, body:not(.css-settings-manager) .HyperMD-codeblock .cm-comment.cm-meta {
+  color: var(--code-comment);
+  font-style: italic;
+}
+body.ember-codeblocks .HyperMD-codeblock .cm-keyword, body.ember-codeblocks .HyperMD-codeblock .cm-atom, body:not(.css-settings-manager) .HyperMD-codeblock .cm-keyword, body:not(.css-settings-manager) .HyperMD-codeblock .cm-atom {
+  color: var(--code-keyword);
+}
+body.ember-codeblocks .HyperMD-codeblock .cm-string, body.ember-codeblocks .HyperMD-codeblock .cm-string-2, body:not(.css-settings-manager) .HyperMD-codeblock .cm-string, body:not(.css-settings-manager) .HyperMD-codeblock .cm-string-2 {
+  color: var(--code-string);
+}
+body.ember-codeblocks .HyperMD-codeblock .cm-def, body.ember-codeblocks .HyperMD-codeblock .cm-type, body.ember-codeblocks .HyperMD-codeblock .cm-builtin, body.ember-codeblocks .HyperMD-codeblock .cm-qualifier, body:not(.css-settings-manager) .HyperMD-codeblock .cm-def, body:not(.css-settings-manager) .HyperMD-codeblock .cm-type, body:not(.css-settings-manager) .HyperMD-codeblock .cm-builtin, body:not(.css-settings-manager) .HyperMD-codeblock .cm-qualifier {
+  color: var(--code-function);
+}
+body.ember-codeblocks .HyperMD-codeblock .cm-number, body:not(.css-settings-manager) .HyperMD-codeblock .cm-number {
+  color: var(--code-value);
+}
+body.ember-codeblocks .HyperMD-codeblock .cm-variable, body.ember-codeblocks .HyperMD-codeblock .cm-variable-2, body.ember-codeblocks .HyperMD-codeblock .cm-variable-3, body:not(.css-settings-manager) .HyperMD-codeblock .cm-variable, body:not(.css-settings-manager) .HyperMD-codeblock .cm-variable-2, body:not(.css-settings-manager) .HyperMD-codeblock .cm-variable-3 {
+  color: var(--code-normal);
+}
+body.ember-codeblocks .HyperMD-codeblock .cm-property, body:not(.css-settings-manager) .HyperMD-codeblock .cm-property {
+  color: var(--code-property);
+}
+body.ember-codeblocks .HyperMD-codeblock .cm-operator, body:not(.css-settings-manager) .HyperMD-codeblock .cm-operator {
+  color: var(--code-operator);
+}
+body.ember-codeblocks .HyperMD-codeblock .cm-tag, body:not(.css-settings-manager) .HyperMD-codeblock .cm-tag {
+  color: var(--code-tag);
+}
+body.ember-codeblocks .HyperMD-codeblock .cm-attribute, body:not(.css-settings-manager) .HyperMD-codeblock .cm-attribute {
+  color: var(--code-property);
+}
+body.ember-codeblocks .HyperMD-codeblock .cm-meta, body:not(.css-settings-manager) .HyperMD-codeblock .cm-meta {
+  color: var(--code-keyword);
+}
+body.ember-codeblocks, body:not(.css-settings-manager) {
+  /* ---- Code block container ---- */
+}
+body.ember-codeblocks .markdown-rendered pre, body:not(.css-settings-manager) .markdown-rendered pre {
+  border: 1px solid var(--ember-line);
+  border-radius: var(--radius-m);
+}
+body.ember-codeblocks, body:not(.css-settings-manager) {
+  /* Language flair (top-right pill) */
+}
+body.ember-codeblocks .code-block-flair, body:not(.css-settings-manager) .code-block-flair {
+  color: var(--ember-dim);
+  background: color-mix(in srgb, var(--ember-core) 10%, transparent);
+  border-radius: 0 var(--radius-m) 0 var(--radius-s);
+  font-family: var(--ember-font-mono);
+  font-size: var(--font-smallest);
+  letter-spacing: 0.03em;
+}
+body.ember-codeblocks, body:not(.css-settings-manager) {
+  /* Copy button */
+}
+body.ember-codeblocks .copy-code-button, body:not(.css-settings-manager) .copy-code-button {
+  color: var(--ember-dim);
+}
+body.ember-codeblocks .copy-code-button:hover, body:not(.css-settings-manager) .copy-code-button:hover {
+  color: var(--ember-accent);
+}
