@@ -1,18 +1,25 @@
 // ==========================================================================
 // Properties / frontmatter
 // --------------------------------------------------------------------------
-// Built on Obsidian's native --metadata-* variables and class names, confirmed
-// against app.css in Obsidian 1.12.4:
+// Built on Obsidian's native --metadata-* variables and class names, verified
+// against the live DOM in Obsidian 1.12.4:
 //   .metadata-container  .metadata-properties(-heading)  .metadata-property
-//   .metadata-property[data-property-type="…"]  .metadata-property-icon/-key/-value
-//   .metadata-input-(text|longtext|number|checkbox)  .multi-select-pill
+//   .metadata-property-icon/-key/-value  .metadata-input-(longtext|number|text)
+//   .multi-select-pill  + value modifiers .mod-date / .mod-datetime
+//
+// Per-type colouring is keyed off the lucide ICON CLASS Obsidian assigns per
+// property type (e.g. .lucide-calendar for date). The data-property-type
+// attribute is NOT present on .metadata-property in reading view in 1.12.x, so
+// the icon class is the reliable, version-stable hook in both views. We use
+// :has() to set a per-row --ember-prop colour that the icon, hover tint and
+// pills all read from.
 //
 // Custom tokens added by Ember (documented):
-//   --ember-prop-key       property label colour       (Style Settings)
-//   --ember-prop-accent    base accent for icons/links (Style Settings)
-//   --ember-prop-<type>    per-type field colour (derived from the palette)
-//   --ember-banner-image   banner image url(); none by default
-//   --ember-banner-height  banner height
+//   --ember-prop          per-row field colour (set via :has on icon class)
+//   --ember-prop-key      property label colour       (Style Settings)
+//   --ember-prop-accent   default/fallback field colour (Style Settings)
+//   --ember-banner-image  banner image url(); none by default
+//   --ember-banner-height banner height
 //
 // Gating: applies when the `Style properties` toggle is on (body.ember-properties)
 // AND, so it still works without the Style Settings plugin, whenever Style
@@ -22,19 +29,18 @@
 
 $scope: 'body.ember-properties, body:not(.css-settings-manager)';
 
-// Per-type field colours. Each references a palette token, so the same TYPE
-// reads as the same semantic colour in light and dark (the token is tuned per
-// scheme for contrast). key + accent are overridable via Style Settings.
-$prop-types: (
-  'text':       var(--ember-dim),
-  'multitext':  var(--task-teal),
-  'number':     var(--task-purple),
-  'checkbox':   var(--task-green),
-  'date':       var(--task-amber),
-  'datetime':   var(--task-amber),
-  'tags':       var(--ember-core),
-  'aliases':    var(--task-teal),
-  'cssclasses': var(--task-muted),
+// lucide icon class -> field colour. Each references a palette token, so the
+// same TYPE reads as the same semantic colour in light and dark (the token is
+// tuned per scheme for contrast).
+$icon-colours: (
+  'lucide-text':         var(--ember-dim),    // text / unknown
+  'lucide-forward':      var(--task-teal),     // aliases
+  'lucide-tags':         var(--ember-core),    // tags
+  'lucide-list':         var(--task-teal),     // list (multitext)
+  'lucide-binary':       var(--task-purple),   // number
+  'lucide-check-square': var(--task-green),    // checkbox
+  'lucide-calendar':     var(--task-amber),    // date
+  'lucide-clock':        var(--task-amber),    // datetime
 );
 
 body {
@@ -48,7 +54,7 @@ body {
 
   /* ---- Container: a calm card, clearly separated from the body ---- */
   .metadata-container {
-    --metadata-background:             var(--ember-bg-alt);
+    --metadata-background:             var(--ember-surface-2);
     --metadata-padding:                var(--size-4-3) var(--size-4-4);
     --metadata-divider-color:          var(--ember-line-soft);
     --metadata-divider-color-hover:    var(--ember-line);
@@ -62,6 +68,10 @@ body {
     background: var(--metadata-background);
     border: 1px solid var(--ember-line);
     border-radius: var(--radius-m);
+    /* faint top highlight + soft drop = readable separation in both schemes */
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--ember-text) 5%, transparent),
+      0 1px 3px rgba(0, 0, 0, 0.18);
   }
 
   /* "Properties" heading — quiet, uppercase */
@@ -73,57 +83,53 @@ body {
   }
   .metadata-properties-heading:hover { color: var(--text-muted); }
 
-  /* Rows: gentle hover */
+  /* Key label */
+  .metadata-property-key-input { font-weight: 600; }
+
+  /* ---- Per-type field colour (keyed off the lucide icon class) ---- */
+  .metadata-property { --ember-prop: var(--ember-prop-accent); }
+  @each $icon, $colour in $icon-colours {
+    .metadata-property:has(.#{$icon}) { --ember-prop: #{$colour}; }
+  }
+
+  /* Icon + gentle row hover read the per-row colour. Native lucide icons use
+     currentColor; unknown / custom keys fall back to --ember-prop-accent. */
+  .metadata-property-icon,
+  .metadata-property-icon .svg-icon { color: var(--ember-prop); }
   .metadata-property {
     border-radius: var(--radius-s);
     transition: background-color 120ms ease;
   }
   .metadata-property:hover {
-    background: color-mix(in srgb, var(--ember-prop-accent) 6%, transparent);
-  }
-  .metadata-property-key-input { font-weight: 600; }
-
-  /* Icons default to the field accent (native lucide icons use currentColor;
-     unknown / custom keys fall back to this colour gracefully). */
-  .metadata-property-icon,
-  .metadata-property-icon .svg-icon { color: var(--ember-prop-accent); }
-
-  /* ---- Per-type icon colouring ---- */
-  @each $type, $colour in $prop-types {
-    .metadata-property[data-property-type='#{$type}'] .metadata-property-icon,
-    .metadata-property[data-property-type='#{$type}'] .metadata-property-icon .svg-icon {
-      color: #{$colour};
-    }
+    background: color-mix(in srgb, var(--ember-prop) 7%, transparent);
   }
 
-  /* Numbers & dates: tabular figures; dates get a subtle warm tint.
-     (We only style the rendered value — no attempt to reformat it.) */
-  .metadata-property[data-property-type='number'] .metadata-property-value { font-variant-numeric: tabular-nums; }
-  .metadata-property[data-property-type='date'] .metadata-property-value,
-  .metadata-property[data-property-type='datetime'] .metadata-property-value {
+  /* ---- Value treatments (robust, class-based — no attribute needed) ----
+     We only style the rendered value; no attempt to reformat dates via CSS. */
+  .metadata-input-number { font-variant-numeric: tabular-nums; }
+  .metadata-input.mod-date,
+  .metadata-input.mod-datetime {
     font-variant-numeric: tabular-nums;
     color: var(--task-amber);
   }
+  .metadata-input-checkbox { accent-color: var(--task-green); }
 
-  /* Checkbox: themed accent */
-  .metadata-property[data-property-type='checkbox'] .metadata-input-checkbox {
-    accent-color: var(--task-green);
-  }
-
-  /* ---- Multi-select pills (tags / list / aliases) ---- */
+  /* Multi-select pills (tags / list / aliases) tint to the row colour.
+     Obsidian renders property-value pills "flat": padding/border zeroed, the
+     left gap supplied by the content's margin. That leaves the remove (×)
+     button cramped against the right edge, so we set symmetric padding +
+     border directly and neutralise the doubled content margin. */
   .multi-select-pill {
+    padding-block: 0.16em;
+    padding-inline: 0.55em;
     border-radius: 999px;
-    background: color-mix(in srgb, var(--ember-prop-accent) 12%, transparent);
-    border: 1px solid color-mix(in srgb, var(--ember-prop-accent) 30%, transparent);
+    border: 1px solid color-mix(in srgb, var(--ember-prop) 32%, transparent);
+    background-color: color-mix(in srgb, var(--ember-prop) 13%, transparent);
   }
-  .metadata-property[data-property-type='tags'] .multi-select-pill {
-    background: color-mix(in srgb, var(--ember-core) 14%, transparent);
-    border-color: color-mix(in srgb, var(--ember-core) 34%, transparent);
-  }
-  .metadata-property[data-property-type='multitext'] .multi-select-pill,
-  .metadata-property[data-property-type='aliases'] .multi-select-pill {
-    background: color-mix(in srgb, var(--task-teal) 13%, transparent);
-    border-color: color-mix(in srgb, var(--task-teal) 32%, transparent);
+  .multi-select-pill .multi-select-pill-content { margin-left: 0; }
+  .multi-select-pill:hover {
+    background-color: color-mix(in srgb, var(--ember-prop) 20%, transparent);
+    border-color: color-mix(in srgb, var(--ember-prop) 46%, transparent);
   }
 
   /* Internal-link values keep the accent link colour */
