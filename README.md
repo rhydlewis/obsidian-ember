@@ -131,3 +131,5 @@ reload (Appearance → CSS / restart) to retheme without touching the rules belo
 
 - Palette inspiration: [Haunts](https://gethaunts.app)
 - Fonts: Bricolage Grotesque, Hanken Grotesk, JetBrains Mono (all OFL)
+- Task-status marker glyphs use [Lucide](https://lucide.dev) icons (ISC licence),
+  the same icon set Obsidian ships

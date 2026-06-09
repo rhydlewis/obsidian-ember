@@ -5,30 +5,28 @@ Working backlog for the theme. Not shipped (releases attach only `theme.css` +
 
 ## Open
 
-- [ ] **Revise task-status marker glyphs.** The custom task markers (`◐ ✕ → ←
-  ★ ? !` … and lettered ones like `b k w`) are drawn as `<text>` inside an SVG
-  `mask` over the checkbox background. They look odd — inconsistent
-  alignment/weight/size across markers, and the text-in-mask approach is
-  fragile. Revise: tune mask sizing/baseline per glyph, or move to proper
-  vector icon paths for a cleaner, consistent set. Check against the Tasks
-  section of `Style Showcase.md` in both schemes.
-
 - [ ] **Decide: should the Style Showcase table render real markers?** The
   "Marker" column currently shows ``/``, ``x``, ``>`` … as plain inline code.
   Question: render the actual styled/coloured marker glyph in that column for a
   live reference, or keep it as code? (Demo-note content question, not a theme
   bug — but ties into the glyph revision above.)
 
+## Done
+
+- [x] Revise task-status marker glyphs — replaced text-in-mask glyphs with
+      Lucide vector masks (src/_tasks.scss, generated from lucide-static); crisp
+      and consistent. Lightened global icon stroke for a refined feel.
+- [x] Callouts — ember-tinted, per-type (src/_callouts.scss)
+- [x] Code-block syntax highlighting (src/_code.scss)
+- [x] UI chrome — modals, command palette, menus, settings, status bar (src/_chrome.scss)
+
 ## Upcoming (planned Phase 3 styling — directed one at a time)
 
-- [ ] Callouts (next)
-- [ ] Code-block syntax highlighting
-- [ ] UI chrome (modals, command palette, settings, status bar, search, popovers)
 - [ ] Embeds
 - [ ] List relationship lines
 - [ ] Mobile
 - [ ] Plugins (Dataview, Kanban, Tasks, Calendar)
-- [ ] Wire remaining element toggles (tables, tags, tasks, code blocks, embeds)
+- [ ] Wire remaining element toggles (tables, tags, code blocks, embeds)
       to their styling
 
 ## Phase 4

@@ -10,6 +10,14 @@
 
 .theme-dark,
 .theme-light {
+  /* Icons — slightly lighter, consistent stroke for a refined feel
+     (xs kept heavier so tiny icons stay legible) */
+  --icon-xs-stroke-width: 2px;
+  --icon-s-stroke-width:  1.75px;
+  --icon-m-stroke-width:  1.75px;
+  --icon-l-stroke-width:  1.75px;
+  --icon-xl-stroke-width: 1.75px;
+
   /* Modals */
   --modal-radius:        var(--radius-l);
   --modal-border-width:  1px;

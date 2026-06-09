@@ -5,7 +5,8 @@
 // Obsidian loads and the file attached to releases.
 // ==========================================================================
 
-@use 'base';        // palette (HSL), typography, tasks, Style Settings + backings
+@use 'base';        // palette (HSL), typography, Style Settings + backings
+@use 'tasks';       // task-status markers (Lucide glyph masks)
 @use 'properties';  // frontmatter / properties block
 @use 'callouts';    // callouts — ember-tinted, per-type
 @use 'code';        // code blocks + syntax highlighting
