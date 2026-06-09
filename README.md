@@ -25,7 +25,11 @@ files.
 
 ### 2. Install on your OS
 
-- **macOS** — unzip, select all the font files, double-click and choose
+- **macOS (Homebrew)** — the quickest route, no manual download needed:
+  ```sh
+  brew install --cask font-hanken-grotesk font-bricolage-grotesque font-jetbrains-mono
+  ```
+- **macOS (manual)** — unzip, select all the font files, double-click and choose
   **Install Font** (or drag them into the *Font Book* app).
 - **Windows** — unzip, select all the font files, right-click → **Install for
   all users**.
