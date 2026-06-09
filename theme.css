@@ -19,29 +19,51 @@ body {
   --radius-s: 8px;
   --radius-m: 12px;
   --radius-l: 14px;
+
+  /* ---- HSL foundation (drives the whole palette) ----------------------
+     Two knobs power everything below:
+       --base-h   warm neutral hue — rotate to retint the entire UI
+       --accent-* the ember accent (links / interactive); set per scheme
+     Per scheme, --base-s scales the neutral warmth and --accent-l the
+     accent brightness. The ember "core" is held constant across schemes. */
+  --base-h: 30;
+
+  --ember-core-h: 23;
+  --ember-core-s: 80%;
+  --ember-core-l: 54%;
+  --ember-core: hsl(var(--ember-core-h), var(--ember-core-s), var(--ember-core-l));
 }
 
 /* ---- DARK: charred ember ----------------------------------------------- */
 .theme-dark {
-  --ember-bg:         #0e0c0b;
-  --ember-bg-alt:     #161109;
-  --ember-surface:    #161109;
-  --ember-surface-2:  #1c160e;
+  /* accent (links / interactive) — amber glow */
+  --accent-h: 35;
+  --accent-s: 100%;
+  --accent-l: 70%;
+  /* neutral saturation for this scheme */
+  --base-s: 34%;
+
+  /* neutral ramp — all derived from --base-h / --base-s
+     (resolved values shown for the defaults above) */
+  --ember-bg:         hsl(var(--base-h), calc(var(--base-s) - 22%),  5%);  /* ~#0e0c0b */
+  --ember-bg-alt:     hsl(var(--base-h), var(--base-s),              6%);  /* ~#161109 */
+  --ember-surface:    hsl(var(--base-h), var(--base-s),              6%);  /* ~#161109 */
+  --ember-surface-2:  hsl(var(--base-h), calc(var(--base-s) -  4%),  8%);  /* ~#1c160e */
   --ember-line:       rgba(255,255,255,0.09);
   --ember-line-soft:  rgba(255,255,255,0.045);
-  --ember-text:       #f4ece2;
-  --ember-dim:        #9c9085;
-  --ember-faint:      #6a6058;
-  --ember-core:       #e8732c;   /* the ember itself     */
-  --ember-accent:     #ffc26a;   /* amber-glow, links    */
-  --ember-accent-hi:  #ffd9a0;
-  --ember-warn:       #ffc26a;
+  --ember-text:       hsl(var(--base-h), calc(var(--base-s) +  8%), 92%);  /* ~#f4ece2 */
+  --ember-dim:        hsl(var(--base-h), calc(var(--base-s) - 24%), 57%);  /* ~#9c9085 */
+  --ember-faint:      hsl(var(--base-h), calc(var(--base-s) - 25%), 38%);  /* ~#6a6058 */
+
+  /* accent family — derived from --accent-* */
+  --ember-accent:     hsl(var(--accent-h), var(--accent-s), var(--accent-l));            /* ~#ffc26a */
+  --ember-accent-hi:  hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 11%)); /* ~#ffd9a0 */
+  --ember-warn:       var(--ember-accent);
   --ember-fail:       #f06a5d;
   --ember-on-accent:  #1a0e05;
-  --ember-sel:        rgba(232,115,44,0.22);
-  --accent-h: 33; --accent-s: 100%; --accent-l: 70%;
+  --ember-sel:        color-mix(in srgb, var(--ember-core) 22%, transparent);
 
-  /* heading ramp — warm tones with a teal pop at h4 */
+  /* heading ramp — warm tones */
   --ember-h1: #ffc98a;   /* glow   */
   --ember-h2: #ffc26a;   /* amber  */
   --ember-h3: #e8732c;   /* ember  */
@@ -61,23 +83,28 @@ body {
 
 /* ---- LIGHT: warm parchment --------------------------------------------- */
 .theme-light {
-  --ember-bg:         #fbf4ea;
-  --ember-bg-alt:     #f4e8d8;
-  --ember-surface:    #fffaf2;
-  --ember-surface-2:  #f4e8d8;
+  /* accent (links / interactive) — deep ember */
+  --accent-h: 18;
+  --accent-s: 85%;
+  --accent-l: 39%;
+  --base-s: 57%;
+
+  --ember-bg:         hsl(var(--base-h), calc(var(--base-s) +  3%), 95%);  /* ~#fbf4ea */
+  --ember-bg-alt:     hsl(var(--base-h), calc(var(--base-s) -  3%), 90%);  /* ~#f4e8d8 */
+  --ember-surface:    hsl(var(--base-h), var(--base-s),             96%);  /* ~#fffaf2 */
+  --ember-surface-2:  hsl(var(--base-h), calc(var(--base-s) -  3%), 90%);  /* ~#f4e8d8 */
   --ember-line:       rgba(40,24,12,0.12);
   --ember-line-soft:  rgba(40,24,12,0.07);
-  --ember-text:       #211913;
-  --ember-dim:        #6b5d50;
-  --ember-faint:      #9a8b7d;
-  --ember-core:       #e8732c;
-  --ember-accent:     #b8410f;   /* deep ember, links    */
-  --ember-accent-hi:  #e8732c;
+  --ember-text:       hsl(var(--base-h), calc(var(--base-s) - 30%), 10%);  /* ~#211913 */
+  --ember-dim:        hsl(var(--base-h), calc(var(--base-s) - 43%), 37%);  /* ~#6b5d50 */
+  --ember-faint:      hsl(var(--base-h), calc(var(--base-s) - 44%), 55%);  /* ~#9a8b7d */
+
+  --ember-accent:     hsl(var(--accent-h), var(--accent-s), var(--accent-l));  /* ~#b8410f */
+  --ember-accent-hi:  var(--ember-core);                                       /*  #e8732c */
   --ember-warn:       #c8821a;
   --ember-fail:       #d24b3f;
   --ember-on-accent:  #ffffff;
-  --ember-sel:        rgba(232,115,44,0.18);
-  --accent-h: 18; --accent-s: 86%; --accent-l: 39%;
+  --ember-sel:        color-mix(in srgb, var(--ember-core) 18%, transparent);
 
   /* heading ramp — darker for contrast on parchment */
   --ember-h1: #b8410f;   /* deep ember */
