@@ -1129,6 +1129,36 @@ body.ember-properties .metadata-property:hover, body:not(.css-settings-manager) 
   background: color-mix(in srgb, var(--ember-prop) 7%, transparent);
 }
 body.ember-properties, body:not(.css-settings-manager) {
+  /* ---- Key-specific icons ----
+     Obsidian picks the property icon by TYPE, so common text keys all show the
+     generic icon. Override per KEY: hide the native svg and overlay a chosen
+     Lucide glyph as a mask (inherits the row colour). Add keys to the map. */
+}
+body.ember-properties .metadata-property[data-property-key=title] .metadata-property-icon > .svg-icon, body:not(.css-settings-manager) .metadata-property[data-property-key=title] .metadata-property-icon > .svg-icon {
+  display: none;
+}
+body.ember-properties .metadata-property[data-property-key=title] .metadata-property-icon::after, body:not(.css-settings-manager) .metadata-property[data-property-key=title] .metadata-property-icon::after {
+  content: "";
+  display: inline-block;
+  width: var(--icon-size, 18px);
+  height: var(--icon-size, 18px);
+  background-color: var(--ember-prop, var(--ember-prop-accent));
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'><path d='M6 12h12'/><path d='M6 20V4'/><path d='M18 20V4'/></svg>") center/contain no-repeat;
+  mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'><path d='M6 12h12'/><path d='M6 20V4'/><path d='M18 20V4'/></svg>") center/contain no-repeat;
+}
+body.ember-properties .metadata-property[data-property-key=status] .metadata-property-icon > .svg-icon, body:not(.css-settings-manager) .metadata-property[data-property-key=status] .metadata-property-icon > .svg-icon {
+  display: none;
+}
+body.ember-properties .metadata-property[data-property-key=status] .metadata-property-icon::after, body:not(.css-settings-manager) .metadata-property[data-property-key=status] .metadata-property-icon::after {
+  content: "";
+  display: inline-block;
+  width: var(--icon-size, 18px);
+  height: var(--icon-size, 18px);
+  background-color: var(--ember-prop, var(--ember-prop-accent));
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><circle cx='12' cy='12' r='1'/></svg>") center/contain no-repeat;
+  mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><circle cx='12' cy='12' r='1'/></svg>") center/contain no-repeat;
+}
+body.ember-properties, body:not(.css-settings-manager) {
   /* ---- Value treatments (robust, class-based — no attribute needed) ----
      We only style the rendered value; no attempt to reformat dates via CSS. */
 }
