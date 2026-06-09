@@ -1715,3 +1715,48 @@ body.ember-list-lines .HyperMD-list-line .cm-hmd-list-indent {
 .is-mobile .workspace-drawer.mod-right {
   border-radius: var(--mobile-sidebar-radius) 0 0 var(--mobile-sidebar-radius);
 }
+
+@media print {
+  body.theme-dark {
+    color-scheme: light;
+    --ember-bg: #fbf4ea;
+    --ember-bg-alt: #f4e8d8;
+    --ember-surface: #fffaf2;
+    --ember-surface-2: #f4e8d8;
+    --ember-line: rgba(40, 24, 12, 0.12);
+    --ember-line-soft: rgba(40, 24, 12, 0.07);
+    --ember-text: #211913;
+    --ember-dim: #6b5d50;
+    --ember-faint: #8b7b6b;
+    --ember-accent: #b8420f;
+    --ember-accent-hi: #e8732c;
+    --ember-h1: #b8410f;
+    --ember-h2: #c8551a;
+    --ember-h3: #bf4e15;
+    --ember-h4: #a8460e;
+    --ember-h5: #8a6f53;
+    --ember-h6: #6b5d50;
+    /* code + task palettes to the light, print-legible variants */
+    --code-comment: #9a8b7d;
+    --code-keyword: #b8410f;
+    --code-function: #c8821a;
+    --code-string: #3f9a4e;
+    --code-property: #2a8d7d;
+    --code-operator: #8a6f53;
+    --code-punctuation: #6b5d50;
+    --code-value: #7a4fd0;
+    --code-normal: #211913;
+    --task-amber: #b8410f;
+    --task-ember: #e8732c;
+    --task-teal: #2a8d7d;
+    --task-red: #d24b3f;
+    --task-green: #3f9a4e;
+    --task-muted: #6b5d50;
+    --task-purple: #7a4fd0;
+  }
+  /* keep tinted callouts/pills visible on paper */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

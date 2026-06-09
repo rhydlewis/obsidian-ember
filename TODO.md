@@ -26,11 +26,15 @@ Working backlog for the theme. Not shipped (releases attach only `theme.css` +
 - [x] Code-block syntax highlighting (src/_code.scss)
 - [x] UI chrome — modals, command palette, menus, settings, status bar (src/_chrome.scss)
 
-## Upcoming
+## Phase 4 (release readiness)
 
-Phase 3 styling complete. Next is Phase 4 (below).
-
-## Phase 4
-
-- [ ] Accessibility/contrast pass (both schemes), PDF export, selector dedupe,
-      screenshot (512×288), README/CHANGELOG, GitHub release + directory submission
+- [x] Accessibility / contrast pass (WCAG AA, both schemes) — light h3 + faint
+      and bundled light accents deepened
+- [x] Property key-specific Lucide icons (title, status)
+- [x] PDF export — light palette in `@media print` (src/_print.scss)
+- [x] Directory screenshot (512×288)
+- [x] README refresh + CHANGELOG
+- [ ] Optional: selector dedupe / size pass
+- [ ] Make repo public
+- [ ] GitHub release (tag = manifest version; attach manifest.json + theme.css)
+- [ ] Submit at community.obsidian.md (yours to action)
