@@ -1,0 +1,157 @@
+// ==========================================================================
+// Properties / frontmatter
+// --------------------------------------------------------------------------
+// Built on Obsidian's native --metadata-* variables and class names, confirmed
+// against app.css in Obsidian 1.12.4:
+//   .metadata-container  .metadata-properties(-heading)  .metadata-property
+//   .metadata-property[data-property-type="…"]  .metadata-property-icon/-key/-value
+//   .metadata-input-(text|longtext|number|checkbox)  .multi-select-pill
+//
+// Custom tokens added by Ember (documented):
+//   --ember-prop-key       property label colour       (Style Settings)
+//   --ember-prop-accent    base accent for icons/links (Style Settings)
+//   --ember-prop-<type>    per-type field colour (derived from the palette)
+//   --ember-banner-image   banner image url(); none by default
+//   --ember-banner-height  banner height
+//
+// Gating: applies when the `Style properties` toggle is on (body.ember-properties)
+// AND, so it still works without the Style Settings plugin, whenever Style
+// Settings isn't managing the document (body:not(.css-settings-manager)).
+// The banner is opt-in only (body.ember-banner).
+// ==========================================================================
+
+$scope: 'body.ember-properties, body:not(.css-settings-manager)';
+
+// Per-type field colours. Each references a palette token, so the same TYPE
+// reads as the same semantic colour in light and dark (the token is tuned per
+// scheme for contrast). key + accent are overridable via Style Settings.
+$prop-types: (
+  'text':       var(--ember-dim),
+  'multitext':  var(--task-teal),
+  'number':     var(--task-purple),
+  'checkbox':   var(--task-green),
+  'date':       var(--task-amber),
+  'datetime':   var(--task-amber),
+  'tags':       var(--ember-core),
+  'aliases':    var(--task-teal),
+  'cssclasses': var(--task-muted),
+);
+
+body {
+  --ember-prop-key:      var(--text-muted);
+  --ember-prop-accent:   var(--ember-core);
+  --ember-banner-image:  none;     // supply per note — see README
+  --ember-banner-height: 180px;
+}
+
+#{$scope} {
+
+  /* ---- Container: a calm card, clearly separated from the body ---- */
+  .metadata-container {
+    --metadata-background:             var(--ember-bg-alt);
+    --metadata-padding:                var(--size-4-3) var(--size-4-4);
+    --metadata-divider-color:          var(--ember-line-soft);
+    --metadata-divider-color-hover:    var(--ember-line);
+    --metadata-label-text-color:       var(--ember-prop-key);
+    --metadata-label-text-color-hover: var(--ember-accent);
+    --metadata-label-font-weight:      600;
+    --metadata-property-radius:        var(--radius-s);
+
+    margin-block-end: var(--size-4-5);
+    padding: var(--metadata-padding);
+    background: var(--metadata-background);
+    border: 1px solid var(--ember-line);
+    border-radius: var(--radius-m);
+  }
+
+  /* "Properties" heading — quiet, uppercase */
+  .metadata-properties-heading {
+    color: var(--text-faint);
+    font-size: var(--font-smaller);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .metadata-properties-heading:hover { color: var(--text-muted); }
+
+  /* Rows: gentle hover */
+  .metadata-property {
+    border-radius: var(--radius-s);
+    transition: background-color 120ms ease;
+  }
+  .metadata-property:hover {
+    background: color-mix(in srgb, var(--ember-prop-accent) 6%, transparent);
+  }
+  .metadata-property-key-input { font-weight: 600; }
+
+  /* Icons default to the field accent (native lucide icons use currentColor;
+     unknown / custom keys fall back to this colour gracefully). */
+  .metadata-property-icon,
+  .metadata-property-icon .svg-icon { color: var(--ember-prop-accent); }
+
+  /* ---- Per-type icon colouring ---- */
+  @each $type, $colour in $prop-types {
+    .metadata-property[data-property-type='#{$type}'] .metadata-property-icon,
+    .metadata-property[data-property-type='#{$type}'] .metadata-property-icon .svg-icon {
+      color: #{$colour};
+    }
+  }
+
+  /* Numbers & dates: tabular figures; dates get a subtle warm tint.
+     (We only style the rendered value — no attempt to reformat it.) */
+  .metadata-property[data-property-type='number'] .metadata-property-value { font-variant-numeric: tabular-nums; }
+  .metadata-property[data-property-type='date'] .metadata-property-value,
+  .metadata-property[data-property-type='datetime'] .metadata-property-value {
+    font-variant-numeric: tabular-nums;
+    color: var(--task-amber);
+  }
+
+  /* Checkbox: themed accent */
+  .metadata-property[data-property-type='checkbox'] .metadata-input-checkbox {
+    accent-color: var(--task-green);
+  }
+
+  /* ---- Multi-select pills (tags / list / aliases) ---- */
+  .multi-select-pill {
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--ember-prop-accent) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--ember-prop-accent) 30%, transparent);
+  }
+  .metadata-property[data-property-type='tags'] .multi-select-pill {
+    background: color-mix(in srgb, var(--ember-core) 14%, transparent);
+    border-color: color-mix(in srgb, var(--ember-core) 34%, transparent);
+  }
+  .metadata-property[data-property-type='multitext'] .multi-select-pill,
+  .metadata-property[data-property-type='aliases'] .multi-select-pill {
+    background: color-mix(in srgb, var(--task-teal) 13%, transparent);
+    border-color: color-mix(in srgb, var(--task-teal) 32%, transparent);
+  }
+
+  /* Internal-link values keep the accent link colour */
+  .metadata-link-inner { color: var(--ember-accent); }
+}
+
+/* ==========================================================================
+   Optional banner  (off by default — body.ember-banner)
+   CSS cannot read a frontmatter value as an image URL, so the banner is driven
+   by the --ember-banner-image custom property. Supply it per note (e.g. via the
+   Banners plugin, or a CSS snippet keyed off a cssclass). When no image is set,
+   a subtle ember gradient header shows instead, so it never looks broken.
+   ========================================================================== */
+body.ember-banner .metadata-container {
+  position: relative;
+  margin-block-start: var(--size-4-3);
+}
+body.ember-banner .metadata-container::before {
+  content: '';
+  display: block;
+  height: var(--ember-banner-height);
+  margin: calc(-1 * var(--size-4-3)) calc(-1 * var(--size-4-4)) var(--size-4-3);
+  border-radius: var(--radius-m) var(--radius-m) 0 0;
+  background-image:
+    var(--ember-banner-image),
+    linear-gradient(135deg,
+      color-mix(in srgb, var(--ember-core) 38%, transparent),
+      color-mix(in srgb, var(--ember-accent) 22%, transparent));
+  background-size: cover;
+  background-position: center;
+}

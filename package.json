@@ -1,0 +1,13 @@
+{
+  "name": "obsidian-ember",
+  "version": "1.0.0",
+  "description": "Ember — a warm, low-glare Obsidian theme",
+  "private": true,
+  "scripts": {
+    "build": "sass src/theme.scss theme.css --style=expanded --no-source-map",
+    "watch": "sass --watch src/theme.scss theme.css --style=expanded --no-source-map"
+  },
+  "devDependencies": {
+    "sass": "^1.100.0"
+  }
+}

@@ -1,0 +1,9 @@
+// ==========================================================================
+// Ember — build entry
+// Edit the partials in src/, then run `npm run build` (or `npm run watch`).
+// The compiled output is theme.css at the repo root — that is the file
+// Obsidian loads and the file attached to releases.
+// ==========================================================================
+
+@use 'base';        // palette (HSL), typography, tasks, Style Settings + backings
+@use 'properties';  // frontmatter / properties block
