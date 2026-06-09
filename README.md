@@ -40,12 +40,12 @@ Restart Obsidian after installing so it picks up the newly-available fonts.
 
 ### 3. Tell Obsidian to use them
 
-Once Ember's **Style Settings** controls land you'll be able to set the text,
-heading, and monospace fonts from **Settings → Style Settings → Ember → Fonts**
-— type the exact font name (e.g. `Hanken Grotesk`, `Bricolage Grotesque`,
+Install the **Style Settings** community plugin, then set the text, heading,
+and monospace fonts under **Settings → Style Settings → Ember → Typography** —
+type the exact font name (e.g. `Hanken Grotesk`, `Bricolage Grotesque`,
 `JetBrains Mono`).
 
-In the meantime you can set the base interface/text font under
+Alternatively set the base interface/text font under
 **Settings → Appearance → Font**, and the code font under
 **Settings → Appearance → Monospace font**.
 
@@ -72,6 +72,10 @@ muted → dim). `h1` also gets an ember underline. Edit the `--ember-h1`…
 ## Features
 
 - Full dark + light variants
+- **Style Settings** support — accent (HSL) picker, bundled Catppuccin / Nord
+  palettes, true-black OLED mode, font controls, reading measure, compact
+  density, reduced-motion and dyslexia-friendly options, plus per-element
+  toggles
 - Ember-highlighted **selected/active rows** in every sidebar (files, search,
   outline, bookmarks)
 - Tables with a visible grid, shaded header, zebra rows, and horizontal scroll
