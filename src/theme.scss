@@ -11,3 +11,6 @@
 @use 'callouts';    // callouts — ember-tinted, per-type
 @use 'code';        // code blocks + syntax highlighting
 @use 'chrome';      // modals, command palette, menus, settings, status bar
+@use 'embeds';      // embedded notes / file / image embeds
+@use 'lists';       // list relationship lines (opt-in)
+@use 'plugins';     // Dataview, Kanban

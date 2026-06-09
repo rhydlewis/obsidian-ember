@@ -13,6 +13,10 @@ Working backlog for the theme. Not shipped (releases attach only `theme.css` +
 
 ## Done
 
+- [x] Embeds — ember-accented cards via native --embed-* vars (src/_embeds.scss)
+- [x] List relationship lines — opt-in vertical guides (src/_lists.scss)
+- [x] Plugins — Dataview inline fields + Kanban board/cards (src/_plugins.scss);
+      Dataview tables inherit the base table styling
 - [x] Revise task-status marker glyphs — replaced text-in-mask glyphs with
       Lucide vector masks (src/_tasks.scss, generated from lucide-static); crisp
       and consistent. Lightened global icon stroke for a refined feel.
@@ -22,12 +26,9 @@ Working backlog for the theme. Not shipped (releases attach only `theme.css` +
 
 ## Upcoming (planned Phase 3 styling — directed one at a time)
 
-- [ ] Embeds
-- [ ] List relationship lines
 - [ ] Mobile
-- [ ] Plugins (Dataview, Kanban, Tasks, Calendar)
-- [ ] Wire remaining element toggles (tables, tags, code blocks, embeds)
-      to their styling
+- [ ] Wire remaining element toggles (tables, tags) to their styling
+      (tasks, properties, callouts, code, embeds already gated)
 
 ## Phase 4
 

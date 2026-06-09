@@ -1,0 +1,29 @@
+// ==========================================================================
+// List relationship lines  (opt-in)
+// --------------------------------------------------------------------------
+// Vertical guide lines connecting nested list items, like a tree. OFF by
+// default — only applies when the `List relationship lines` toggle is on
+// (body.ember-list-lines). Reading view uses a border on the nested list;
+// live preview uses the .cm-hmd-list-indent guide spans.
+// ==========================================================================
+
+body.ember-list-lines {
+
+  /* ---- Reading view ---- */
+  .markdown-rendered :is(ul, ol) :is(ul, ol) {
+    position: relative;
+    border-inline-start: 1px solid var(--ember-line);
+    margin-inline-start: 0.35em;
+    padding-inline-start: 0.95em;
+  }
+  .markdown-rendered :is(ul, ol) :is(ul, ol):hover {
+    border-inline-start-color: color-mix(in srgb, var(--ember-core) 45%, var(--ember-line));
+  }
+
+  /* ---- Live preview ---- */
+  /* each indentation step renders a .cm-hmd-list-indent span; a left border
+     per line stacks into a continuous vertical guide. */
+  .HyperMD-list-line .cm-hmd-list-indent {
+    box-shadow: inset 1px 0 0 0 var(--ember-line);
+  }
+}

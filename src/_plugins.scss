@@ -1,0 +1,64 @@
+// ==========================================================================
+// Community plugins
+// --------------------------------------------------------------------------
+// Light, cohesive theming for popular plugins. Applied globally (selectors
+// simply don't match when a plugin isn't installed). Class names verified
+// against the live DOM (Kanban, Dataview) in the sandbox vault.
+// ==========================================================================
+
+/* ---- Dataview ----------------------------------------------------------
+   Query tables render as .table-view-table inside .markdown-rendered, so they
+   already inherit Ember's base table styling. Here we cover inline fields. */
+.dataview.inline-field-key,
+.inline-field-key {
+  background: color-mix(in srgb, var(--ember-core) 12%, transparent);
+  color: var(--ember-accent);
+  border: 1px solid color-mix(in srgb, var(--ember-core) 28%, transparent);
+  border-inline-end: none;
+  border-radius: var(--radius-s) 0 0 var(--radius-s);
+  padding: 0 0.4em;
+}
+.dataview.inline-field-value,
+.inline-field-value {
+  background: var(--ember-bg-alt);
+  border: 1px solid var(--ember-line);
+  border-radius: 0 var(--radius-s) var(--radius-s) 0;
+  padding: 0 0.4em;
+}
+.block-language-dataview .dataview.small-text { color: var(--ember-dim); }
+
+/* ---- Kanban ------------------------------------------------------------ */
+.kanban-plugin__lane {
+  background: var(--ember-surface);
+  border: 1px solid var(--ember-line);
+  border-radius: var(--radius-m);
+}
+.kanban-plugin__lane-title-text {
+  color: var(--ember-accent);
+  font-weight: 600;
+  font-family: var(--ember-font-head);
+}
+.kanban-plugin__lane-title-count {
+  background: color-mix(in srgb, var(--ember-core) 14%, transparent);
+  color: var(--ember-accent);
+  border-radius: 999px;
+  padding: 0 0.5em;
+}
+.kanban-plugin__item {
+  background: var(--ember-bg-alt);
+  border: 1px solid var(--ember-line);
+  border-radius: var(--radius-s);
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+.kanban-plugin__item:hover {
+  border-color: color-mix(in srgb, var(--ember-core) 40%, var(--ember-line));
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+.kanban-plugin__item.is-complete .kanban-plugin__item-title {
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+.kanban-plugin__new-item-button,
+.kanban-plugin__add-item-button { color: var(--ember-dim); }
+.kanban-plugin__new-item-button:hover,
+.kanban-plugin__add-item-button:hover { color: var(--ember-accent); }

@@ -1,0 +1,44 @@
+// ==========================================================================
+// Embeds — embedded notes (![[note]]), file embeds, image embeds
+// --------------------------------------------------------------------------
+// Driven by Obsidian's native --embed-* vars (verified Obsidian 1.12.4):
+// --embed-background, --embed-padding, --embed-border-start, --embed-max-height…
+// Gated by the `Styled embeds` toggle (body.ember-embeds) with the
+// no-Style-Settings fallback.
+// ==========================================================================
+
+$scope: 'body.ember-embeds, body:not(.css-settings-manager)';
+
+#{$scope} {
+  /* Embedded note: a calm card with an ember left-accent */
+  .markdown-embed,
+  .internal-embed.markdown-embed {
+    --embed-background: var(--ember-bg-alt);
+    --embed-padding: var(--size-4-2) var(--size-4-3);
+    --embed-border-start: 3px solid var(--ember-core);
+    background: var(--embed-background);
+    border-radius: var(--radius-m);
+  }
+
+  .markdown-embed-title {
+    color: var(--ember-accent);
+    font-weight: 600;
+  }
+
+  /* The hover "open link" affordance */
+  .markdown-embed-link { color: var(--ember-dim); }
+  .markdown-embed-link:hover { color: var(--ember-accent); }
+
+  /* Non-markdown file embeds (pdf, audio, unsupported) */
+  .file-embed {
+    background: var(--ember-bg-alt);
+    border: 1px solid var(--ember-line);
+    border-radius: var(--radius-m);
+  }
+  .file-embed-title { color: var(--ember-text); }
+  .file-embed-icon { color: var(--ember-dim); }
+
+  /* Image embeds: gentle rounding */
+  .internal-embed img,
+  .markdown-rendered img { border-radius: var(--radius-s); }
+}
