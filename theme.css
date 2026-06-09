@@ -603,6 +603,61 @@ body:not(.css-settings-manager) [data-task=M] .task-list-item-checkbox {
   mask-size: 92%;
 }
 body.ember-tasks, body:not(.css-settings-manager) {
+  /* suppress Obsidian's native checkmark ::after — we paint our own glyph */
+}
+body.ember-tasks [data-task="/"] .task-list-item-checkbox::after,
+body.ember-tasks [data-task=x] .task-list-item-checkbox::after,
+body.ember-tasks [data-task=X] .task-list-item-checkbox::after,
+body.ember-tasks [data-task="-"] .task-list-item-checkbox::after,
+body.ember-tasks [data-task=">"] .task-list-item-checkbox::after,
+body.ember-tasks [data-task="<"] .task-list-item-checkbox::after,
+body.ember-tasks [data-task="?"] .task-list-item-checkbox::after,
+body.ember-tasks [data-task="!"] .task-list-item-checkbox::after,
+body.ember-tasks [data-task="*"] .task-list-item-checkbox::after,
+body.ember-tasks [data-task='"'] .task-list-item-checkbox::after,
+body.ember-tasks [data-task=l] .task-list-item-checkbox::after,
+body.ember-tasks [data-task=b] .task-list-item-checkbox::after,
+body.ember-tasks [data-task=i] .task-list-item-checkbox::after,
+body.ember-tasks [data-task=S] .task-list-item-checkbox::after,
+body.ember-tasks [data-task=I] .task-list-item-checkbox::after,
+body.ember-tasks [data-task=p] .task-list-item-checkbox::after,
+body.ember-tasks [data-task=c] .task-list-item-checkbox::after,
+body.ember-tasks [data-task=f] .task-list-item-checkbox::after,
+body.ember-tasks [data-task=k] .task-list-item-checkbox::after,
+body.ember-tasks [data-task=w] .task-list-item-checkbox::after,
+body.ember-tasks [data-task=u] .task-list-item-checkbox::after,
+body.ember-tasks [data-task=d] .task-list-item-checkbox::after,
+body.ember-tasks [data-task=D] .task-list-item-checkbox::after,
+body.ember-tasks [data-task=P] .task-list-item-checkbox::after,
+body.ember-tasks [data-task=M] .task-list-item-checkbox::after, body:not(.css-settings-manager) [data-task="/"] .task-list-item-checkbox::after,
+body:not(.css-settings-manager) [data-task=x] .task-list-item-checkbox::after,
+body:not(.css-settings-manager) [data-task=X] .task-list-item-checkbox::after,
+body:not(.css-settings-manager) [data-task="-"] .task-list-item-checkbox::after,
+body:not(.css-settings-manager) [data-task=">"] .task-list-item-checkbox::after,
+body:not(.css-settings-manager) [data-task="<"] .task-list-item-checkbox::after,
+body:not(.css-settings-manager) [data-task="?"] .task-list-item-checkbox::after,
+body:not(.css-settings-manager) [data-task="!"] .task-list-item-checkbox::after,
+body:not(.css-settings-manager) [data-task="*"] .task-list-item-checkbox::after,
+body:not(.css-settings-manager) [data-task='"'] .task-list-item-checkbox::after,
+body:not(.css-settings-manager) [data-task=l] .task-list-item-checkbox::after,
+body:not(.css-settings-manager) [data-task=b] .task-list-item-checkbox::after,
+body:not(.css-settings-manager) [data-task=i] .task-list-item-checkbox::after,
+body:not(.css-settings-manager) [data-task=S] .task-list-item-checkbox::after,
+body:not(.css-settings-manager) [data-task=I] .task-list-item-checkbox::after,
+body:not(.css-settings-manager) [data-task=p] .task-list-item-checkbox::after,
+body:not(.css-settings-manager) [data-task=c] .task-list-item-checkbox::after,
+body:not(.css-settings-manager) [data-task=f] .task-list-item-checkbox::after,
+body:not(.css-settings-manager) [data-task=k] .task-list-item-checkbox::after,
+body:not(.css-settings-manager) [data-task=w] .task-list-item-checkbox::after,
+body:not(.css-settings-manager) [data-task=u] .task-list-item-checkbox::after,
+body:not(.css-settings-manager) [data-task=d] .task-list-item-checkbox::after,
+body:not(.css-settings-manager) [data-task=D] .task-list-item-checkbox::after,
+body:not(.css-settings-manager) [data-task=P] .task-list-item-checkbox::after,
+body:not(.css-settings-manager) [data-task=M] .task-list-item-checkbox::after {
+  content: none !important;
+  display: none !important;
+}
+body.ember-tasks, body:not(.css-settings-manager) {
   /* per-marker Lucide glyph + colour */
 }
 body.ember-tasks [data-task="/"] .task-list-item-checkbox, body:not(.css-settings-manager) [data-task="/"] .task-list-item-checkbox {
