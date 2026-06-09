@@ -7,15 +7,13 @@
 //   .metadata-property-icon/-key/-value  .metadata-input-(longtext|number|text)
 //   .multi-select-pill  + value modifiers .mod-date / .mod-datetime
 //
-// Per-type colouring is keyed off the lucide ICON CLASS Obsidian assigns per
-// property type (e.g. .lucide-calendar for date). The data-property-type
-// attribute is NOT present on .metadata-property in reading view in 1.12.x, so
-// the icon class is the reliable, version-stable hook in both views. We use
-// :has() to set a per-row --ember-prop colour that the icon, hover tint and
-// pills all read from.
+// Per-type icon colour is keyed off the lucide ICON CLASS Obsidian assigns per
+// property type (e.g. .lucide-calendar for date) — a reliable hook in both
+// reading and editing view. Pills are coloured off data-property-type, which
+// sits on .metadata-property-value. No :has() (the Obsidian linter warns it can
+// hurt performance).
 //
 // Custom tokens added by Ember (documented):
-//   --ember-prop          per-row field colour (set via :has on icon class)
 //   --ember-prop-key      property label colour       (Style Settings)
 //   --ember-prop-accent   default/fallback field colour (Style Settings)
 //   --ember-banner-image  banner image url(); none by default
@@ -86,28 +84,25 @@ body {
   /* Key label */
   .metadata-property-key-input { font-weight: 600; }
 
-  /* ---- Per-type field colour (keyed off the lucide icon class) ---- */
-  .metadata-property { --ember-prop: var(--ember-prop-accent); }
+  /* ---- Per-type icon colour ----
+     Keyed directly off the native lucide icon class (no :has — avoids the
+     broad selector-invalidation the Obsidian linter warns about). */
+  .metadata-property-icon .svg-icon { color: var(--ember-prop-accent); }  /* default / unknown */
   @each $icon, $colour in $icon-colours {
-    .metadata-property:has(.#{$icon}) { --ember-prop: #{$colour}; }
+    .metadata-property-icon .svg-icon.#{$icon} { color: #{$colour}; }
   }
-
-  /* Icon + gentle row hover read the per-row colour. Native lucide icons use
-     currentColor; unknown / custom keys fall back to --ember-prop-accent. */
-  .metadata-property-icon,
-  .metadata-property-icon .svg-icon { color: var(--ember-prop); }
   .metadata-property {
     border-radius: var(--radius-s);
     transition: background-color 120ms ease;
   }
   .metadata-property:hover {
-    background: color-mix(in srgb, var(--ember-prop) 7%, transparent);
+    background: color-mix(in srgb, var(--ember-prop-accent) 6%, transparent);
   }
 
   /* ---- Key-specific icons ----
      Obsidian picks the property icon by TYPE, so common text keys all show the
      generic icon. Override per KEY: hide the native svg and overlay a chosen
-     Lucide glyph as a mask (inherits the row colour). Add keys to the map. */
+     Lucide glyph as a mask. Add keys to the map. */
   @each $key, $glyph in (
     'title':  "<path d='M6 12h12'/><path d='M6 20V4'/><path d='M18 20V4'/>",      // heading
     'status': "<circle cx='12' cy='12' r='10'/><circle cx='12' cy='12' r='1'/>"   // circle-dot
@@ -118,7 +113,7 @@ body {
       display: inline-block;
       width: var(--icon-size, 18px);
       height: var(--icon-size, 18px);
-      background-color: var(--ember-prop, var(--ember-prop-accent));
+      background-color: var(--ember-dim);
       -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'>#{$glyph}</svg>") center / contain no-repeat;
               mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'>#{$glyph}</svg>") center / contain no-repeat;
     }
@@ -143,13 +138,19 @@ body {
     padding-block: 0.16em;
     padding-inline: 0.55em;
     border-radius: 999px;
-    border: 1px solid color-mix(in srgb, var(--ember-prop) 32%, transparent);
-    background-color: color-mix(in srgb, var(--ember-prop) 13%, transparent);
+    border: 1px solid color-mix(in srgb, var(--ember-prop-accent) 32%, transparent);
+    background-color: color-mix(in srgb, var(--ember-prop-accent) 13%, transparent);
   }
   .multi-select-pill .multi-select-pill-content { margin-left: 0; }
   .multi-select-pill:hover {
-    background-color: color-mix(in srgb, var(--ember-prop) 20%, transparent);
-    border-color: color-mix(in srgb, var(--ember-prop) 46%, transparent);
+    background-color: color-mix(in srgb, var(--ember-prop-accent) 20%, transparent);
+    border-color: color-mix(in srgb, var(--ember-prop-accent) 46%, transparent);
+  }
+  /* list / aliases pills read teal (data-property-type sits on the value) */
+  .metadata-property-value[data-property-type='multitext'] .multi-select-pill,
+  .metadata-property-value[data-property-type='aliases'] .multi-select-pill {
+    border-color: color-mix(in srgb, var(--task-teal) 32%, transparent);
+    background-color: color-mix(in srgb, var(--task-teal) 13%, transparent);
   }
 
   /* Internal-link values keep the accent link colour */

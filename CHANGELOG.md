@@ -3,6 +3,20 @@
 All notable changes to Ember are documented here. Versions follow
 [semantic versioning](https://semver.org).
 
+## 1.0.1
+
+Addresses Obsidian community-review feedback.
+
+### Changed
+- `authorUrl` now points to the author profile, not the theme repo.
+- Properties: per-type colouring no longer uses `:has()` (keyed off the lucide
+  icon class + `data-property-type` on the value element) — avoids the
+  selector-invalidation performance warning.
+- Task statuses: dropped `!important` from the glyph rules (the `body.ember-tasks`
+  scope already wins on specificity), and removed `text-decoration-color`.
+  `!important` count reduced from ~40 to 11 (remaining uses — reduce-motion,
+  dyslexia font, font/active-row overrides — are necessary).
+
 ## 1.0.0
 
 First public release.

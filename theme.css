@@ -799,7 +799,7 @@ body:not(.css-settings-manager) [data-task=d] .task-list-item-checkbox,
 body:not(.css-settings-manager) [data-task=D] .task-list-item-checkbox,
 body:not(.css-settings-manager) [data-task=P] .task-list-item-checkbox,
 body:not(.css-settings-manager) [data-task=M] .task-list-item-checkbox {
-  border: none !important;
+  border: none;
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
   -webkit-mask-size: 92%;
@@ -859,159 +859,159 @@ body:not(.css-settings-manager) [data-task=d] .task-list-item-checkbox::after,
 body:not(.css-settings-manager) [data-task=D] .task-list-item-checkbox::after,
 body:not(.css-settings-manager) [data-task=P] .task-list-item-checkbox::after,
 body:not(.css-settings-manager) [data-task=M] .task-list-item-checkbox::after {
-  content: none !important;
-  display: none !important;
+  content: none;
+  display: none;
 }
 body.ember-tasks, body:not(.css-settings-manager) {
   /* per-marker Lucide glyph + colour */
 }
 body.ember-tasks [data-task="/"] .task-list-item-checkbox, body:not(.css-settings-manager) [data-task="/"] .task-list-item-checkbox {
   --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M10.1 2.18a9.93 9.93 0 0 1 3.8 0' /> <path d='M17.6 3.71a9.95 9.95 0 0 1 2.69 2.7' /> <path d='M21.82 10.1a9.93 9.93 0 0 1 0 3.8' /> <path d='M20.29 17.6a9.95 9.95 0 0 1-2.7 2.69' /> <path d='M13.9 21.82a9.94 9.94 0 0 1-3.8 0' /> <path d='M6.4 20.29a9.95 9.95 0 0 1-2.69-2.7' /> <path d='M2.18 13.9a9.93 9.93 0 0 1 0-3.8' /> <path d='M3.71 6.4a9.95 9.95 0 0 1 2.7-2.69' /> <circle cx='12' cy='12' r='1' /></svg>");
-  background-color: var(--task-amber) !important;
+  background-color: var(--task-amber);
   -webkit-mask-image: var(--g);
   mask-image: var(--g);
 }
 body.ember-tasks [data-task=x] .task-list-item-checkbox, body:not(.css-settings-manager) [data-task=x] .task-list-item-checkbox {
   --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M20 6 9 17l-5-5' /></svg>");
-  background-color: var(--task-ember) !important;
+  background-color: var(--task-ember);
   -webkit-mask-image: var(--g);
   mask-image: var(--g);
 }
 body.ember-tasks [data-task=X] .task-list-item-checkbox, body:not(.css-settings-manager) [data-task=X] .task-list-item-checkbox {
   --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M20 6 9 17l-5-5' /></svg>");
-  background-color: var(--task-ember) !important;
+  background-color: var(--task-ember);
   -webkit-mask-image: var(--g);
   mask-image: var(--g);
 }
 body.ember-tasks [data-task="-"] .task-list-item-checkbox, body:not(.css-settings-manager) [data-task="-"] .task-list-item-checkbox {
   --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M18 6 6 18' /> <path d='m6 6 12 12' /></svg>");
-  background-color: var(--task-muted) !important;
+  background-color: var(--task-muted);
   -webkit-mask-image: var(--g);
   mask-image: var(--g);
 }
 body.ember-tasks [data-task=">"] .task-list-item-checkbox, body:not(.css-settings-manager) [data-task=">"] .task-list-item-checkbox {
   --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12h14' /> <path d='m12 5 7 7-7 7' /></svg>");
-  background-color: var(--task-teal) !important;
+  background-color: var(--task-teal);
   -webkit-mask-image: var(--g);
   mask-image: var(--g);
 }
 body.ember-tasks [data-task="<"] .task-list-item-checkbox, body:not(.css-settings-manager) [data-task="<"] .task-list-item-checkbox {
   --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='m12 19-7-7 7-7' /> <path d='M19 12H5' /></svg>");
-  background-color: var(--task-teal) !important;
+  background-color: var(--task-teal);
   -webkit-mask-image: var(--g);
   mask-image: var(--g);
 }
 body.ember-tasks [data-task="?"] .task-list-item-checkbox, body:not(.css-settings-manager) [data-task="?"] .task-list-item-checkbox {
   --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10' /> <path d='M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3' /> <path d='M12 17h.01' /></svg>");
-  background-color: var(--task-teal) !important;
+  background-color: var(--task-teal);
   -webkit-mask-image: var(--g);
   mask-image: var(--g);
 }
 body.ember-tasks [data-task="!"] .task-list-item-checkbox, body:not(.css-settings-manager) [data-task="!"] .task-list-item-checkbox {
   --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3' /> <path d='M12 9v4' /> <path d='M12 17h.01' /></svg>");
-  background-color: var(--task-red) !important;
+  background-color: var(--task-red);
   -webkit-mask-image: var(--g);
   mask-image: var(--g);
 }
 body.ember-tasks [data-task="*"] .task-list-item-checkbox, body:not(.css-settings-manager) [data-task="*"] .task-list-item-checkbox {
   --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z' /></svg>");
-  background-color: var(--task-amber) !important;
+  background-color: var(--task-amber);
   -webkit-mask-image: var(--g);
   mask-image: var(--g);
 }
 body.ember-tasks [data-task='"'] .task-list-item-checkbox, body:not(.css-settings-manager) [data-task='"'] .task-list-item-checkbox {
   --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z' /> <path d='M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z' /></svg>");
-  background-color: var(--task-muted) !important;
+  background-color: var(--task-muted);
   -webkit-mask-image: var(--g);
   mask-image: var(--g);
 }
 body.ember-tasks [data-task=l] .task-list-item-checkbox, body:not(.css-settings-manager) [data-task=l] .task-list-item-checkbox {
   --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0' /> <circle cx='12' cy='10' r='3' /></svg>");
-  background-color: var(--task-teal) !important;
+  background-color: var(--task-teal);
   -webkit-mask-image: var(--g);
   mask-image: var(--g);
 }
 body.ember-tasks [data-task=b] .task-list-item-checkbox, body:not(.css-settings-manager) [data-task=b] .task-list-item-checkbox {
   --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M17 3a2 2 0 0 1 2 2v15a1 1 0 0 1-1.496.868l-4.512-2.578a2 2 0 0 0-1.984 0l-4.512 2.578A1 1 0 0 1 5 20V5a2 2 0 0 1 2-2z' /></svg>");
-  background-color: var(--task-teal) !important;
+  background-color: var(--task-teal);
   -webkit-mask-image: var(--g);
   mask-image: var(--g);
 }
 body.ember-tasks [data-task=i] .task-list-item-checkbox, body:not(.css-settings-manager) [data-task=i] .task-list-item-checkbox {
   --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10' /> <path d='M12 16v-4' /> <path d='M12 8h.01' /></svg>");
-  background-color: var(--task-teal) !important;
+  background-color: var(--task-teal);
   -webkit-mask-image: var(--g);
   mask-image: var(--g);
 }
 body.ember-tasks [data-task=S] .task-list-item-checkbox, body:not(.css-settings-manager) [data-task=S] .task-list-item-checkbox {
   --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M11 17h3v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3a3.16 3.16 0 0 0 2-2h1a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-1a5 5 0 0 0-2-4V3a4 4 0 0 0-3.2 1.6l-.3.4H11a6 6 0 0 0-6 6v1a5 5 0 0 0 2 4v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1z' /> <path d='M16 10h.01' /> <path d='M2 8v1a2 2 0 0 0 2 2h1' /></svg>");
-  background-color: var(--task-green) !important;
+  background-color: var(--task-green);
   -webkit-mask-image: var(--g);
   mask-image: var(--g);
 }
 body.ember-tasks [data-task=I] .task-list-item-checkbox, body:not(.css-settings-manager) [data-task=I] .task-list-item-checkbox {
   --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5' /> <path d='M9 18h6' /> <path d='M10 22h4' /></svg>");
-  background-color: var(--task-amber) !important;
+  background-color: var(--task-amber);
   -webkit-mask-image: var(--g);
   mask-image: var(--g);
 }
 body.ember-tasks [data-task=p] .task-list-item-checkbox, body:not(.css-settings-manager) [data-task=p] .task-list-item-checkbox {
   --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z' /> <path d='M7 10v12' /></svg>");
-  background-color: var(--task-green) !important;
+  background-color: var(--task-green);
   -webkit-mask-image: var(--g);
   mask-image: var(--g);
 }
 body.ember-tasks [data-task=c] .task-list-item-checkbox, body:not(.css-settings-manager) [data-task=c] .task-list-item-checkbox {
   --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22a3.13 3.13 0 0 1-3-3.88Z' /> <path d='M17 14V2' /></svg>");
-  background-color: var(--task-red) !important;
+  background-color: var(--task-red);
   -webkit-mask-image: var(--g);
   mask-image: var(--g);
 }
 body.ember-tasks [data-task=f] .task-list-item-checkbox, body:not(.css-settings-manager) [data-task=f] .task-list-item-checkbox {
   --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4' /></svg>");
-  background-color: var(--task-red) !important;
+  background-color: var(--task-red);
   -webkit-mask-image: var(--g);
   mask-image: var(--g);
 }
 body.ember-tasks [data-task=k] .task-list-item-checkbox, body:not(.css-settings-manager) [data-task=k] .task-list-item-checkbox {
   --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4' /> <path d='m21 2-9.6 9.6' /> <circle cx='7.5' cy='15.5' r='5.5' /></svg>");
-  background-color: var(--task-amber) !important;
+  background-color: var(--task-amber);
   -webkit-mask-image: var(--g);
   mask-image: var(--g);
 }
 body.ember-tasks [data-task=w] .task-list-item-checkbox, body:not(.css-settings-manager) [data-task=w] .task-list-item-checkbox {
   --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M10 14.66v1.626a2 2 0 0 1-.976 1.696A5 5 0 0 0 7 21.978' /> <path d='M14 14.66v1.626a2 2 0 0 0 .976 1.696A5 5 0 0 1 17 21.978' /> <path d='M18 9h1.5a1 1 0 0 0 0-5H18' /> <path d='M4 22h16' /> <path d='M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z' /> <path d='M6 9H4.5a1 1 0 0 1 0-5H6' /></svg>");
-  background-color: var(--task-green) !important;
+  background-color: var(--task-green);
   -webkit-mask-image: var(--g);
   mask-image: var(--g);
 }
 body.ember-tasks [data-task=u] .task-list-item-checkbox, body:not(.css-settings-manager) [data-task=u] .task-list-item-checkbox {
   --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M16 7h6v6' /> <path d='m22 7-8.5 8.5-5-5L2 17' /></svg>");
-  background-color: var(--task-green) !important;
+  background-color: var(--task-green);
   -webkit-mask-image: var(--g);
   mask-image: var(--g);
 }
 body.ember-tasks [data-task=d] .task-list-item-checkbox, body:not(.css-settings-manager) [data-task=d] .task-list-item-checkbox {
   --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M16 17h6v-6' /> <path d='m22 17-8.5-8.5-5 5L2 7' /></svg>");
-  background-color: var(--task-red) !important;
+  background-color: var(--task-red);
   -webkit-mask-image: var(--g);
   mask-image: var(--g);
 }
 body.ember-tasks [data-task=D] .task-list-item-checkbox, body:not(.css-settings-manager) [data-task=D] .task-list-item-checkbox {
   --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><circle cx='18' cy='18' r='3' /> <circle cx='6' cy='6' r='3' /> <path d='M18 6V5' /> <path d='M18 11v-1' /> <line x1='6' x2='6' y1='9' y2='21' /></svg>");
-  background-color: var(--task-muted) !important;
+  background-color: var(--task-muted);
   -webkit-mask-image: var(--g);
   mask-image: var(--g);
 }
 body.ember-tasks [data-task=P] .task-list-item-checkbox, body:not(.css-settings-manager) [data-task=P] .task-list-item-checkbox {
   --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><circle cx='18' cy='18' r='3' /> <circle cx='6' cy='6' r='3' /> <path d='M13 6h3a2 2 0 0 1 2 2v7' /> <line x1='6' x2='6' y1='9' y2='21' /></svg>");
-  background-color: var(--task-green) !important;
+  background-color: var(--task-green);
   -webkit-mask-image: var(--g);
   mask-image: var(--g);
 }
 body.ember-tasks [data-task=M] .task-list-item-checkbox, body:not(.css-settings-manager) [data-task=M] .task-list-item-checkbox {
   --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><circle cx='18' cy='18' r='3' /> <circle cx='6' cy='6' r='3' /> <path d='M6 21V9a9 9 0 0 0 9 9' /></svg>");
-  background-color: var(--task-purple) !important;
+  background-color: var(--task-purple);
   -webkit-mask-image: var(--g);
   mask-image: var(--g);
 }
@@ -1028,7 +1028,6 @@ body.ember-tasks .HyperMD-task-line[data-task=x], body.ember-tasks .HyperMD-task
 body:not(.css-settings-manager) .HyperMD-task-line[data-task=x], body:not(.css-settings-manager) .HyperMD-task-line[data-task=X] {
   color: var(--text-muted);
   text-decoration: line-through;
-  text-decoration-color: var(--text-faint);
 }
 body.ember-tasks [data-task="-"].task-list-item,
 body.ember-tasks .HyperMD-task-line[data-task="-"], body:not(.css-settings-manager) [data-task="-"].task-list-item,
@@ -1083,56 +1082,50 @@ body.ember-properties .metadata-property-key-input, body:not(.css-settings-manag
   font-weight: 600;
 }
 body.ember-properties, body:not(.css-settings-manager) {
-  /* ---- Per-type field colour (keyed off the lucide icon class) ---- */
+  /* ---- Per-type icon colour ----
+     Keyed directly off the native lucide icon class (no :has — avoids the
+     broad selector-invalidation the Obsidian linter warns about). */
 }
-body.ember-properties .metadata-property, body:not(.css-settings-manager) .metadata-property {
-  --ember-prop: var(--ember-prop-accent);
+body.ember-properties .metadata-property-icon .svg-icon, body:not(.css-settings-manager) .metadata-property-icon .svg-icon {
+  color: var(--ember-prop-accent);
 }
-body.ember-properties .metadata-property:has(.lucide-text), body:not(.css-settings-manager) .metadata-property:has(.lucide-text) {
-  --ember-prop: var(--ember-dim);
+body.ember-properties, body:not(.css-settings-manager) { /* default / unknown */ }
+body.ember-properties .metadata-property-icon .svg-icon.lucide-text, body:not(.css-settings-manager) .metadata-property-icon .svg-icon.lucide-text {
+  color: var(--ember-dim);
 }
-body.ember-properties .metadata-property:has(.lucide-forward), body:not(.css-settings-manager) .metadata-property:has(.lucide-forward) {
-  --ember-prop: var(--task-teal);
+body.ember-properties .metadata-property-icon .svg-icon.lucide-forward, body:not(.css-settings-manager) .metadata-property-icon .svg-icon.lucide-forward {
+  color: var(--task-teal);
 }
-body.ember-properties .metadata-property:has(.lucide-tags), body:not(.css-settings-manager) .metadata-property:has(.lucide-tags) {
-  --ember-prop: var(--ember-core);
+body.ember-properties .metadata-property-icon .svg-icon.lucide-tags, body:not(.css-settings-manager) .metadata-property-icon .svg-icon.lucide-tags {
+  color: var(--ember-core);
 }
-body.ember-properties .metadata-property:has(.lucide-list), body:not(.css-settings-manager) .metadata-property:has(.lucide-list) {
-  --ember-prop: var(--task-teal);
+body.ember-properties .metadata-property-icon .svg-icon.lucide-list, body:not(.css-settings-manager) .metadata-property-icon .svg-icon.lucide-list {
+  color: var(--task-teal);
 }
-body.ember-properties .metadata-property:has(.lucide-binary), body:not(.css-settings-manager) .metadata-property:has(.lucide-binary) {
-  --ember-prop: var(--task-purple);
+body.ember-properties .metadata-property-icon .svg-icon.lucide-binary, body:not(.css-settings-manager) .metadata-property-icon .svg-icon.lucide-binary {
+  color: var(--task-purple);
 }
-body.ember-properties .metadata-property:has(.lucide-check-square), body:not(.css-settings-manager) .metadata-property:has(.lucide-check-square) {
-  --ember-prop: var(--task-green);
+body.ember-properties .metadata-property-icon .svg-icon.lucide-check-square, body:not(.css-settings-manager) .metadata-property-icon .svg-icon.lucide-check-square {
+  color: var(--task-green);
 }
-body.ember-properties .metadata-property:has(.lucide-calendar), body:not(.css-settings-manager) .metadata-property:has(.lucide-calendar) {
-  --ember-prop: var(--task-amber);
+body.ember-properties .metadata-property-icon .svg-icon.lucide-calendar, body:not(.css-settings-manager) .metadata-property-icon .svg-icon.lucide-calendar {
+  color: var(--task-amber);
 }
-body.ember-properties .metadata-property:has(.lucide-clock), body:not(.css-settings-manager) .metadata-property:has(.lucide-clock) {
-  --ember-prop: var(--task-amber);
-}
-body.ember-properties, body:not(.css-settings-manager) {
-  /* Icon + gentle row hover read the per-row colour. Native lucide icons use
-     currentColor; unknown / custom keys fall back to --ember-prop-accent. */
-}
-body.ember-properties .metadata-property-icon,
-body.ember-properties .metadata-property-icon .svg-icon, body:not(.css-settings-manager) .metadata-property-icon,
-body:not(.css-settings-manager) .metadata-property-icon .svg-icon {
-  color: var(--ember-prop);
+body.ember-properties .metadata-property-icon .svg-icon.lucide-clock, body:not(.css-settings-manager) .metadata-property-icon .svg-icon.lucide-clock {
+  color: var(--task-amber);
 }
 body.ember-properties .metadata-property, body:not(.css-settings-manager) .metadata-property {
   border-radius: var(--radius-s);
   transition: background-color 120ms ease;
 }
 body.ember-properties .metadata-property:hover, body:not(.css-settings-manager) .metadata-property:hover {
-  background: color-mix(in srgb, var(--ember-prop) 7%, transparent);
+  background: color-mix(in srgb, var(--ember-prop-accent) 6%, transparent);
 }
 body.ember-properties, body:not(.css-settings-manager) {
   /* ---- Key-specific icons ----
      Obsidian picks the property icon by TYPE, so common text keys all show the
      generic icon. Override per KEY: hide the native svg and overlay a chosen
-     Lucide glyph as a mask (inherits the row colour). Add keys to the map. */
+     Lucide glyph as a mask. Add keys to the map. */
 }
 body.ember-properties .metadata-property[data-property-key=title] .metadata-property-icon > .svg-icon, body:not(.css-settings-manager) .metadata-property[data-property-key=title] .metadata-property-icon > .svg-icon {
   display: none;
@@ -1142,7 +1135,7 @@ body.ember-properties .metadata-property[data-property-key=title] .metadata-prop
   display: inline-block;
   width: var(--icon-size, 18px);
   height: var(--icon-size, 18px);
-  background-color: var(--ember-prop, var(--ember-prop-accent));
+  background-color: var(--ember-dim);
   -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'><path d='M6 12h12'/><path d='M6 20V4'/><path d='M18 20V4'/></svg>") center/contain no-repeat;
   mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'><path d='M6 12h12'/><path d='M6 20V4'/><path d='M18 20V4'/></svg>") center/contain no-repeat;
 }
@@ -1154,7 +1147,7 @@ body.ember-properties .metadata-property[data-property-key=status] .metadata-pro
   display: inline-block;
   width: var(--icon-size, 18px);
   height: var(--icon-size, 18px);
-  background-color: var(--ember-prop, var(--ember-prop-accent));
+  background-color: var(--ember-dim);
   -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><circle cx='12' cy='12' r='1'/></svg>") center/contain no-repeat;
   mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><circle cx='12' cy='12' r='1'/></svg>") center/contain no-repeat;
 }
@@ -1185,15 +1178,24 @@ body.ember-properties .multi-select-pill, body:not(.css-settings-manager) .multi
   padding-block: 0.16em;
   padding-inline: 0.55em;
   border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--ember-prop) 32%, transparent);
-  background-color: color-mix(in srgb, var(--ember-prop) 13%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ember-prop-accent) 32%, transparent);
+  background-color: color-mix(in srgb, var(--ember-prop-accent) 13%, transparent);
 }
 body.ember-properties .multi-select-pill .multi-select-pill-content, body:not(.css-settings-manager) .multi-select-pill .multi-select-pill-content {
   margin-left: 0;
 }
 body.ember-properties .multi-select-pill:hover, body:not(.css-settings-manager) .multi-select-pill:hover {
-  background-color: color-mix(in srgb, var(--ember-prop) 20%, transparent);
-  border-color: color-mix(in srgb, var(--ember-prop) 46%, transparent);
+  background-color: color-mix(in srgb, var(--ember-prop-accent) 20%, transparent);
+  border-color: color-mix(in srgb, var(--ember-prop-accent) 46%, transparent);
+}
+body.ember-properties, body:not(.css-settings-manager) {
+  /* list / aliases pills read teal (data-property-type sits on the value) */
+}
+body.ember-properties .metadata-property-value[data-property-type=multitext] .multi-select-pill,
+body.ember-properties .metadata-property-value[data-property-type=aliases] .multi-select-pill, body:not(.css-settings-manager) .metadata-property-value[data-property-type=multitext] .multi-select-pill,
+body:not(.css-settings-manager) .metadata-property-value[data-property-type=aliases] .multi-select-pill {
+  border-color: color-mix(in srgb, var(--task-teal) 32%, transparent);
+  background-color: color-mix(in srgb, var(--task-teal) 13%, transparent);
 }
 body.ember-properties, body:not(.css-settings-manager) {
   /* Internal-link values keep the accent link colour */
