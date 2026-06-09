@@ -4,6 +4,8 @@ A warm, low-glare Obsidian theme — charred near-black in dark mode, warm
 parchment in light mode, with an ember-orange accent. Palette inspired by
 [gethaunts.app](https://gethaunts.app).
 
+![Ember theme](screenshot.png)
+
 ## Fonts
 
 Ember ships with **no bundled or remotely-loaded fonts** — it defaults to your
@@ -71,46 +73,52 @@ muted → dim). `h1` also gets an ember underline. Edit the `--ember-h1`…
 
 ## Features
 
-- Full dark + light variants
-- **Style Settings** support — accent (HSL) picker, bundled Catppuccin / Nord
-  palettes, true-black OLED mode, font controls, reading measure, compact
-  density, reduced-motion and dyslexia-friendly options, plus per-element
-  toggles
-- Ember-highlighted **selected/active rows** in every sidebar (files, search,
-  outline, bookmarks)
-- Tables with a visible grid, shaded header, zebra rows, and horizontal scroll
-  for wide tables
-- Pill-style tags and inline code; ember-edged blockquotes
-- Themed chrome: titlebar, tabs, scrollbar, active editor line
-- **Custom task statuses** (Things-style) — colour-coded checkboxes for 25
-  markers, in reading view and live preview
+- Full **dark + light** variants, with an HSL-driven palette (every colour
+  derives from a few hue/saturation knobs)
+- **Style Settings** support — accent (HSL) picker, bundled **Catppuccin** /
+  **Nord** palettes, true-black **OLED** mode, font controls, reading measure,
+  compact density, reduced-motion and dyslexia-friendly options, plus
+  per-element toggles
+- **Properties / frontmatter** styled as a calm card with per-type coloured
+  icons (date, list, number, checkbox, tags…), themed pills and an optional banner
+- **Callouts** ember-tinted per type, sharing one colour language with tasks
+  and properties
+- **Syntax highlighting** in an ember palette across reading view (Prism) and
+  live preview (CodeMirror)
+- **Custom task statuses** — 25 Lucide-icon markers, colour-coded, in reading
+  view and live preview
+- **UI chrome**: command palette, modals, menus, settings, status bar, tooltips
+- Styled **embeds**, optional list **relationship lines**, **mobile** polish,
+  and light **plugin** theming (Dataview, Kanban)
+- Tables, pill tags, ember-edged blockquotes; themed titlebar, tabs, scrollbar
+- Ember-highlighted **selected/active rows** in every sidebar
 
 ## Task statuses
 
-Use `- [X]` where `X` is one of the markers below. Styling is keyed off
-Obsidian's `data-task` attribute and works in both reading view and live
-preview. Colours come from the `--task-*` variables (tweak per scheme near the
-top of `theme.css`).
+Use `- [X]` where `X` is one of the markers below. Each renders as a
+colour-coded **Lucide** icon, keyed off Obsidian's `data-task` attribute, in
+both reading view and live preview. Colours come from the `--task-*` variables.
 
-| Basic | | Extras | | Extras | |
-|---|---|---|---|---|---|
-| `/` incomplete | ◐ amber | `?` question | teal | `f` fire | red |
-| `x` done | ember + strike | `!` important | red | `k` key | amber |
-| `-` canceled | strike, dim | `*` star | amber | `w` win | green |
-| `>` forwarded | → teal | `"` quote | muted | `u` up | ↑ green |
-| `<` scheduling | ← teal | `l` location | teal | `d` down | ↓ red |
-| | | `b` bookmark | teal | `D` draft PR | muted |
-| | | `i` information | teal | `P` open PR | green |
-| | | `S` savings | $ green | `M` merged PR | purple |
-| | | `I` idea | amber | | |
-| | | `p` pros | + green | `c` cons | − red |
+| Marker | Meaning | Colour | | Marker | Meaning | Colour |
+|---|---|---|---|---|---|---|
+| `/` | incomplete | amber | | `b` | bookmark | teal |
+| `x` | done | ember (struck) | | `i` | information | teal |
+| `-` | canceled | muted (struck) | | `S` | savings | green |
+| `>` | forwarded | teal | | `I` | idea | amber |
+| `<` | scheduling | teal | | `p` / `c` | pros / cons | green / red |
+| `?` | question | teal | | `f` | fire | red |
+| `!` | important | red | | `k` | key | amber |
+| `*` | star | amber | | `w` | win | green |
+| `"` | quote | muted | | `u` / `d` | up / down | green / red |
+| `l` | location | teal | | `D`/`P`/`M` | PR draft/open/merged | muted/green/purple |
 
-> Glyphs are drawn as an SVG `mask` over the checkbox's `background-color`
-> (pseudo-elements don't render on checkbox inputs in every Obsidian build, but
-> masks always do). Markers without a clean monochrome glyph (bookmark, key,
-> fire, PR states, etc.) use their letter, colour-coded. To change a glyph, edit
-> the `<text>…</text>` content in that marker's rule in the *Task statuses*
-> section of `theme.css`.
+> Markers are drawn as a Lucide SVG `mask` over the checkbox's
+> `background-color` (masks render on checkbox inputs in every Obsidian build,
+> where pseudo-elements don't). The glyphs are generated from
+> [`lucide-static`](https://www.npmjs.com/package/lucide-static) into
+> `src/_tasks.scss` — to retune one, swap its Lucide icon there and rebuild.
+> A few markers (e.g. `I` = idea) are special-cased by Obsidian core; the full
+> set is most reliable alongside the **Tasks** plugin.
 
 ## Install / enable
 
@@ -123,9 +131,28 @@ theme's fonts win, and the **Accent color** to `#e8732c` (or `#ffc26a`).
 
 ## Customising
 
-All colours are CSS variables defined in the `.theme-dark` and `.theme-light`
-blocks near the top of `theme.css` (prefixed `--ember-*`). Change them there and
-reload (Appearance → CSS / restart) to retheme without touching the rules below.
+The easiest route is the **Style Settings** plugin — accent colour, palette
+(Ember / Catppuccin / Nord / OLED), fonts, density, reading width, per-element
+toggles and accessibility options, all from the settings UI with no CSS editing.
+
+For deeper changes, every colour is a CSS variable. The palette derives from a
+small HSL foundation (`--base-h`, `--base-s`, `--accent-h/s/l`) in the
+`.theme-dark` / `.theme-light` blocks (prefixed `--ember-*` / `--task-*`).
+
+## Building from source
+
+The theme is written in SCSS and compiled to `theme.css` (the file Obsidian
+loads and the one attached to releases).
+
+```sh
+npm install
+npm run build      # src/*.scss → theme.css
+npm run watch      # rebuild on change
+```
+
+Partials live in `src/`: `_base` (palette, typography, Style Settings),
+`_schemes`, `_tasks`, `_properties`, `_callouts`, `_code`, `_chrome`,
+`_embeds`, `_lists`, `_plugins`, `_mobile`; entry point `src/theme.scss`.
 
 ## Credits
 
