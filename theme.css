@@ -1123,3 +1123,75 @@ body.ember-banner .metadata-container::before {
   background-size: cover;
   background-position: center;
 }
+
+/* ---- Per-type colour triples (match the --task-* palette) ---- */
+body.ember-callouts.theme-dark,
+body:not(.css-settings-manager).theme-dark {
+  --callout-default: 232, 115, 44; /* note      → ember     */
+  --callout-info: 95, 214, 194; /* info      → teal      */
+  --callout-todo: 255, 194, 106; /* todo      → amber     */
+  --callout-tip: 139, 209, 122; /* tip       → green     */
+  --callout-success: 139, 209, 122; /* success/done          */
+  --callout-question: 255, 194, 106; /* question  → amber     */
+  --callout-warning: 255, 194, 106; /* warning   → amber     */
+  --callout-important: 232, 115, 44; /* important → ember core */
+  --callout-fail: 240, 106, 93; /* fail      → red       */
+  --callout-error: 240, 106, 93; /* error/danger          */
+  --callout-bug: 240, 106, 93; /* bug                   */
+  --callout-example: 179, 136, 255; /* example   → purple    */
+  --callout-quote: 156, 144, 133; /* quote     → muted     */
+  --callout-summary: 95, 214, 194; /* summary   → teal      */
+}
+
+body.ember-callouts.theme-light,
+body:not(.css-settings-manager).theme-light {
+  --callout-default: 184, 65, 15;
+  --callout-info: 42, 141, 125;
+  --callout-todo: 200, 130, 26;
+  --callout-tip: 63, 154, 78;
+  --callout-success: 63, 154, 78;
+  --callout-question: 200, 130, 26;
+  --callout-warning: 200, 130, 26;
+  --callout-important: 232, 115, 44;
+  --callout-fail: 210, 75, 63;
+  --callout-error: 210, 75, 63;
+  --callout-bug: 210, 75, 63;
+  --callout-example: 122, 79, 208;
+  --callout-quote: 107, 93, 80;
+  --callout-summary: 42, 141, 125;
+}
+
+/* ---- Box styling ---- */
+body.ember-callouts .callout, body:not(.css-settings-manager) .callout {
+  --callout-radius: var(--radius-m);
+  --callout-border-width: 0px;
+  --callout-blend-mode: normal;
+  margin-block: var(--size-4-3);
+  border-radius: var(--radius-m);
+  border-inline-start: 3px solid rgb(var(--callout-color));
+  background-color: rgba(var(--callout-color), 0.07);
+  mix-blend-mode: normal;
+}
+body.ember-callouts, body:not(.css-settings-manager) {
+  /* Title bar: a touch stronger tint, coloured text + icon (native already
+     uses --callout-color; we reinforce weight/spacing). */
+}
+body.ember-callouts .callout-title, body:not(.css-settings-manager) .callout-title {
+  padding: var(--size-4-2) var(--size-4-3);
+  background-color: rgba(var(--callout-color), 0.1);
+  font-weight: 600;
+}
+body.ember-callouts .callout-title-inner, body:not(.css-settings-manager) .callout-title-inner {
+  color: rgb(var(--callout-color));
+}
+body.ember-callouts .callout-icon,
+body.ember-callouts .callout-icon .svg-icon, body:not(.css-settings-manager) .callout-icon,
+body:not(.css-settings-manager) .callout-icon .svg-icon {
+  color: rgb(var(--callout-color));
+}
+body.ember-callouts .callout-fold, body:not(.css-settings-manager) .callout-fold {
+  color: rgb(var(--callout-color));
+}
+body.ember-callouts .callout-content, body:not(.css-settings-manager) .callout-content {
+  padding: var(--size-4-2) var(--size-4-3);
+}
