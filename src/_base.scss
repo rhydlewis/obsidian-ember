@@ -323,7 +323,7 @@ body {
   --ember-line-soft:  rgba(40,24,12,0.07);
   --ember-text:       hsl(var(--base-h), calc(var(--base-s) - 30%), 10%);  /* ~#211913 */
   --ember-dim:        hsl(var(--base-h), calc(var(--base-s) - 43%), 37%);  /* ~#6b5d50 */
-  --ember-faint:      hsl(var(--base-h), calc(var(--base-s) - 44%), 55%);  /* ~#9a8b7d */
+  --ember-faint:      hsl(var(--base-h), calc(var(--base-s) - 44%), 48%);  /* ~#8b7b6b — a11y ≥3:1 */
 
   --ember-accent:     hsl(var(--accent-h), var(--accent-s), var(--accent-l));  /* ~#b8410f */
   --ember-accent-hi:  var(--ember-core);                                       /*  #e8732c */
@@ -335,7 +335,7 @@ body {
   /* heading ramp — darker for contrast on parchment */
   --ember-h1: #b8410f;   /* deep ember */
   --ember-h2: #c8551a;
-  --ember-h3: #e8732c;   /* ember  */
+  --ember-h3: #bf4e15;   /* deep ember — a11y ≥4:1 on parchment */
   --ember-h4: #a8460e;   /* deep ember */
   --ember-h5: #8a6f53;
   --ember-h6: #6b5d50;   /* dim    */
