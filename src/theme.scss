@@ -9,3 +9,4 @@
 @use 'properties';  // frontmatter / properties block
 @use 'callouts';    // callouts — ember-tinted, per-type
 @use 'code';        // code blocks + syntax highlighting
+@use 'chrome';      // modals, command palette, menus, settings, status bar

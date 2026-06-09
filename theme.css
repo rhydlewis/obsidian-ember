@@ -1328,3 +1328,95 @@ body.ember-codeblocks .copy-code-button, body:not(.css-settings-manager) .copy-c
 body.ember-codeblocks .copy-code-button:hover, body:not(.css-settings-manager) .copy-code-button:hover {
   color: var(--ember-accent);
 }
+
+.theme-dark,
+.theme-light {
+  /* Modals */
+  --modal-radius: var(--radius-l);
+  --modal-border-width: 1px;
+  --modal-border-color: var(--ember-line);
+  /* Command palette / quick switcher */
+  --prompt-border-width: 1px;
+  --prompt-border-color: var(--ember-line);
+  /* Status bar */
+  --status-bar-background: var(--ember-bg);
+  --status-bar-border-color: var(--ember-line);
+  --status-bar-text-color: var(--ember-dim);
+}
+
+/* ---- Modals ---- */
+.modal-title,
+.modal-setting-title {
+  color: var(--ember-text);
+}
+
+.modal-close-button:hover {
+  color: var(--ember-accent);
+}
+
+/* ---- Suggestion lists (command palette, quick switcher, autocomplete) ---- */
+.suggestion-item.is-selected {
+  background-color: color-mix(in srgb, var(--ember-core) 16%, transparent);
+  color: var(--ember-accent);
+}
+
+.prompt-input:focus {
+  box-shadow: none;
+}
+
+/* ---- Context menus ---- */
+.menu {
+  border: 1px solid var(--ember-line);
+  border-radius: var(--radius-m);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+}
+
+.menu-item:hover:not(.is-disabled):not(.is-label),
+.menu-item.selected {
+  background-color: color-mix(in srgb, var(--ember-core) 14%, transparent);
+  color: var(--ember-accent);
+}
+
+.menu-item.selected .menu-item-icon,
+.menu-item:hover .menu-item-icon {
+  color: var(--ember-accent);
+}
+
+/* ---- Settings ---- */
+.vertical-tab-nav-item.is-active {
+  background-color: color-mix(in srgb, var(--ember-core) 16%, transparent);
+  color: var(--ember-accent);
+  box-shadow: inset 2px 0 0 0 var(--ember-core);
+}
+
+.setting-item-name {
+  color: var(--ember-text);
+}
+
+/* ---- Hover popover ---- */
+.popover.hover-popover {
+  border: 1px solid var(--ember-line);
+  border-radius: var(--radius-m);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* ---- Status bar ---- */
+.status-bar {
+  border-top: 1px solid var(--ember-line);
+}
+
+.status-bar-item {
+  color: var(--ember-dim);
+}
+
+/* ---- Tooltips ---- */
+.tooltip {
+  background-color: var(--ember-surface-2);
+  color: var(--ember-text);
+  border: 1px solid var(--ember-line);
+  border-radius: var(--radius-s);
+}
+
+.tooltip .tooltip-arrow {
+  border-bottom-color: var(--ember-surface-2);
+}
