@@ -34,7 +34,7 @@ Working backlog for the theme. Not shipped (releases attach only `theme.css` +
 - [x] PDF export — light palette in `@media print` (src/_print.scss)
 - [x] Directory screenshot (512×288)
 - [x] README refresh + CHANGELOG
-- [ ] Optional: selector dedupe / size pass
-- [ ] Make repo public
-- [ ] GitHub release (tag = manifest version; attach manifest.json + theme.css)
-- [ ] Submit at community.obsidian.md (yours to action)
+- [x] Selector dedupe / size pass — 78 KB, 210 rules, no real duplication
+- [x] Make repo public
+- [x] GitHub release 1.0.0 (manifest.json + theme.css attached)
+- [ ] Submit at community.obsidian.md → Themes → New theme (yours to action)
