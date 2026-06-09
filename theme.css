@@ -1,0 +1,359 @@
+/* ==========================================================================
+   Ember — an Obsidian theme
+   Palette inspired by https://gethaunts.app
+   Body: Hanken Grotesk · Headings: Bricolage Grotesque · Code: JetBrains Mono
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+/* ---- Fonts (both schemes) ---------------------------------------------- */
+body {
+  --ember-font-head: 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+  --ember-font-body: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --ember-font-mono: 'JetBrains Mono', ui-monospace, 'MesloLGLDZ Nerd Font Mono', monospace;
+
+  --font-text-theme:      var(--ember-font-body);
+  --font-interface-theme: var(--ember-font-body);
+  --font-monospace-theme: var(--ember-font-mono);
+
+  --radius-s: 8px;
+  --radius-m: 12px;
+  --radius-l: 14px;
+}
+
+/* ---- DARK: charred ember ----------------------------------------------- */
+.theme-dark {
+  --ember-bg:         #0e0c0b;
+  --ember-bg-alt:     #161109;
+  --ember-surface:    #161109;
+  --ember-surface-2:  #1c160e;
+  --ember-line:       rgba(255,255,255,0.09);
+  --ember-line-soft:  rgba(255,255,255,0.045);
+  --ember-text:       #f4ece2;
+  --ember-dim:        #9c9085;
+  --ember-faint:      #6a6058;
+  --ember-core:       #e8732c;   /* the ember itself     */
+  --ember-accent:     #ffc26a;   /* amber-glow, links    */
+  --ember-accent-hi:  #ffd9a0;
+  --ember-warn:       #ffc26a;
+  --ember-fail:       #f06a5d;
+  --ember-on-accent:  #1a0e05;
+  --ember-sel:        rgba(232,115,44,0.22);
+  --accent-h: 33; --accent-s: 100%; --accent-l: 70%;
+
+  /* heading ramp — warm tones with a teal pop at h4 */
+  --ember-h1: #ffc98a;   /* glow   */
+  --ember-h2: #ffc26a;   /* amber  */
+  --ember-h3: #e8732c;   /* ember  */
+  --ember-h4: #d0571a;   /* deep ember */
+  --ember-h5: #c0a98f;   /* warm muted */
+  --ember-h6: #9c9085;   /* dim    */
+
+  /* task-status accents */
+  --task-amber:  #ffc26a;
+  --task-ember:  #e8732c;
+  --task-teal:   #5fd6c2;
+  --task-red:    #f06a5d;
+  --task-green:  #8bd17a;
+  --task-muted:  #9c9085;
+  --task-purple: #b388ff;
+}
+
+/* ---- LIGHT: warm parchment --------------------------------------------- */
+.theme-light {
+  --ember-bg:         #fbf4ea;
+  --ember-bg-alt:     #f4e8d8;
+  --ember-surface:    #fffaf2;
+  --ember-surface-2:  #f4e8d8;
+  --ember-line:       rgba(40,24,12,0.12);
+  --ember-line-soft:  rgba(40,24,12,0.07);
+  --ember-text:       #211913;
+  --ember-dim:        #6b5d50;
+  --ember-faint:      #9a8b7d;
+  --ember-core:       #e8732c;
+  --ember-accent:     #b8410f;   /* deep ember, links    */
+  --ember-accent-hi:  #e8732c;
+  --ember-warn:       #c8821a;
+  --ember-fail:       #d24b3f;
+  --ember-on-accent:  #ffffff;
+  --ember-sel:        rgba(232,115,44,0.18);
+  --accent-h: 18; --accent-s: 86%; --accent-l: 39%;
+
+  /* heading ramp — darker for contrast on parchment */
+  --ember-h1: #b8410f;   /* deep ember */
+  --ember-h2: #c8551a;
+  --ember-h3: #e8732c;   /* ember  */
+  --ember-h4: #a8460e;   /* deep ember */
+  --ember-h5: #8a6f53;
+  --ember-h6: #6b5d50;   /* dim    */
+
+  /* task-status accents — deepened for parchment contrast */
+  --task-amber:  #b8410f;
+  --task-ember:  #e8732c;
+  --task-teal:   #2a8d7d;
+  --task-red:    #d24b3f;
+  --task-green:  #3f9a4e;
+  --task-muted:  #6b5d50;
+  --task-purple: #7a4fd0;
+}
+
+/* ---- Map onto Obsidian core variables (both schemes) ------------------- */
+.theme-dark, .theme-light {
+  /* backgrounds */
+  --background-primary:        var(--ember-bg);
+  --background-primary-alt:    var(--ember-bg-alt);
+  --background-secondary:      var(--ember-surface);
+  --background-secondary-alt:  var(--ember-surface-2);
+  --background-modifier-hover:        var(--ember-bg-alt);
+  --background-modifier-active-hover: var(--ember-surface-2);
+  --background-modifier-form-field:   var(--ember-bg-alt);
+
+  /* borders / dividers */
+  --background-modifier-border:        var(--ember-line);
+  --background-modifier-border-hover:  var(--ember-line);
+  --background-modifier-border-focus:  var(--ember-accent);
+  --divider-color:                     var(--ember-line-soft);
+  --hr-color:                          var(--ember-line);
+
+  /* text */
+  --text-normal:    var(--ember-text);
+  --text-muted:     var(--ember-dim);
+  --text-faint:     var(--ember-faint);
+  --text-on-accent: var(--ember-on-accent);
+  --text-error:     var(--ember-fail);
+
+  /* accent / links */
+  --interactive-accent:        var(--ember-accent);
+  --interactive-accent-hover:  var(--ember-accent-hi);
+  --text-accent:               var(--ember-accent);
+  --text-accent-hover:         var(--ember-accent-hi);
+  --link-color:                var(--ember-accent);
+  --link-color-hover:          var(--ember-accent-hi);
+  --link-unresolved-color:     var(--ember-dim);
+
+  /* selection / highlight */
+  --text-selection:    var(--ember-sel);
+  --text-highlight-bg: color-mix(in srgb, var(--ember-warn) 30%, transparent);
+
+  /* code */
+  --code-background: var(--ember-bg-alt);
+  --code-normal:     var(--ember-text);
+
+  /* chrome */
+  --titlebar-background:         var(--ember-bg);
+  --titlebar-background-focused: var(--ember-bg);
+  --tab-background-active:       var(--ember-surface);
+  --ribbon-background:           var(--ember-bg);
+  --scrollbar-thumb-bg:          var(--ember-line);
+  --scrollbar-active-thumb-bg:   var(--ember-core);
+
+  /* sidebar / nav selected + active rows glow ember */
+  --nav-item-background-active:   color-mix(in srgb, var(--ember-core) 20%, transparent);
+  --nav-item-background-selected: color-mix(in srgb, var(--ember-core) 14%, transparent);
+  --nav-item-color-active:        var(--ember-accent);
+  --nav-item-color-selected:      var(--ember-accent);
+  --nav-indentation-guide-color:  var(--ember-line);
+}
+
+/* extra reach for selected rows across sidebars (files, search, outline, bookmarks) */
+.theme-dark .tree-item-self.is-active,
+.theme-light .tree-item-self.is-active,
+.theme-dark .tree-item-self.is-selected,
+.theme-light .tree-item-self.is-selected,
+.theme-dark .nav-file-title.is-active,
+.theme-light .nav-file-title.is-active {
+  background-color: color-mix(in srgb, var(--ember-core) 20%, transparent) !important;
+  color: var(--ember-accent) !important;
+  box-shadow: inset 2px 0 0 0 var(--ember-core);
+}
+
+/* ---- Typography -------------------------------------------------------- */
+body,
+.markdown-source-view,
+.markdown-preview-view,
+.cm-editor {
+  font-family: var(--ember-font-body);
+}
+
+.markdown-preview-view h1,
+.markdown-preview-view h2,
+.markdown-preview-view h3,
+.markdown-preview-view h4,
+.markdown-preview-view h5,
+.markdown-preview-view h6,
+.HyperMD-header,
+.cm-header {
+  font-family: var(--ember-font-head) !important;
+  letter-spacing: -0.01em;
+}
+.markdown-preview-view h1,
+.cm-header-1 { font-weight: 800; }
+.markdown-preview-view h2,
+.cm-header-2 { font-weight: 600; }
+
+/* heading colour ramp — reading view + live preview */
+.markdown-preview-view h1,
+.HyperMD-header-1 .cm-header-1,
+.cm-line .cm-header-1 { color: var(--ember-h1); }
+.markdown-preview-view h2,
+.HyperMD-header-2 .cm-header-2,
+.cm-line .cm-header-2 { color: var(--ember-h2); }
+.markdown-preview-view h3,
+.HyperMD-header-3 .cm-header-3,
+.cm-line .cm-header-3 { color: var(--ember-h3); }
+.markdown-preview-view h4,
+.HyperMD-header-4 .cm-header-4,
+.cm-line .cm-header-4 { color: var(--ember-h4); }
+.markdown-preview-view h5,
+.HyperMD-header-5 .cm-header-5,
+.cm-line .cm-header-5 { color: var(--ember-h5); }
+.markdown-preview-view h6,
+.HyperMD-header-6 .cm-header-6,
+.cm-line .cm-header-6 { color: var(--ember-h6); }
+
+/* h1 gets an ember underline */
+.markdown-preview-view h1,
+.HyperMD-header-1 {
+  border-bottom: 1px solid color-mix(in srgb, var(--ember-core) 45%, transparent);
+  padding-bottom: 0.15em;
+}
+
+code, pre,
+.cm-inline-code,
+.HyperMD-codeblock {
+  font-family: var(--ember-font-mono) !important;
+}
+
+/* ---- Tables: clear grid, scroll wide ones ------------------------------ */
+.markdown-rendered table {
+  border-collapse: collapse;
+  width: max-content;
+  max-width: 100%;
+}
+.markdown-rendered th,
+.markdown-rendered td {
+  border: 1px solid var(--ember-line);
+  padding: 0.4em 0.7em;
+  vertical-align: top;
+}
+.markdown-rendered thead th {
+  background: var(--ember-bg-alt);
+  font-weight: 600;
+}
+.markdown-rendered tbody tr:nth-child(even) td {
+  background: color-mix(in srgb, var(--ember-bg-alt) 45%, transparent);
+}
+.markdown-preview-view .table-wrapper,
+.markdown-rendered .table-wrapper {
+  overflow-x: auto;
+}
+
+/* ---- Ember flourishes -------------------------------------------------- */
+:not(pre) > code {
+  background: var(--ember-bg-alt);
+  border: 1px solid var(--ember-line);
+  border-radius: 8px;
+  padding: 0.1em 0.4em;
+  color: var(--ember-accent);
+}
+
+.tag {
+  background: color-mix(in srgb, var(--ember-core) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ember-core) 32%, transparent);
+  color: var(--ember-accent);
+  border-radius: 999px;
+}
+
+.markdown-rendered blockquote {
+  border-left: 3px solid var(--ember-core);
+  background: color-mix(in srgb, var(--ember-core) 7%, transparent);
+}
+
+/* active line + cursor get a faint ember warmth */
+.cm-active.cm-line {
+  background: color-mix(in srgb, var(--ember-core) 5%, transparent);
+}
+
+/* ========================================================================
+   Task statuses  (Things-style)  —  works in reading view + live preview.
+   Obsidian puts data-task on the <li>/cm task-line; the checkbox is a child,
+   so [data-task="X"] .task-list-item-checkbox matches in both views.
+   ======================================================================== */
+
+/* rounded checkboxes */
+.task-list-item-checkbox {
+  border-radius: 5px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Glyphs are drawn as an SVG mask over the checkbox's background-colour, so
+   the marker shows as a filled colour-glyph. (Pseudo-elements don't render on
+   checkbox inputs in all Obsidian builds — mask-image always does.) */
+[data-task="/"] .task-list-item-checkbox, [data-task="-"] .task-list-item-checkbox,
+[data-task=">"] .task-list-item-checkbox, [data-task="<"] .task-list-item-checkbox,
+[data-task="?"] .task-list-item-checkbox, [data-task="!"] .task-list-item-checkbox,
+[data-task="*"] .task-list-item-checkbox, [data-task='"'] .task-list-item-checkbox,
+[data-task="l"] .task-list-item-checkbox, [data-task="b"] .task-list-item-checkbox,
+[data-task="i"] .task-list-item-checkbox, [data-task="S"] .task-list-item-checkbox,
+[data-task="I"] .task-list-item-checkbox, [data-task="p"] .task-list-item-checkbox,
+[data-task="c"] .task-list-item-checkbox, [data-task="f"] .task-list-item-checkbox,
+[data-task="k"] .task-list-item-checkbox, [data-task="w"] .task-list-item-checkbox,
+[data-task="u"] .task-list-item-checkbox, [data-task="d"] .task-list-item-checkbox,
+[data-task="D"] .task-list-item-checkbox, [data-task="P"] .task-list-item-checkbox,
+[data-task="M"] .task-list-item-checkbox {
+  border: none !important;
+  -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; -webkit-mask-size: 100%;
+          mask-repeat: no-repeat;         mask-position: center;         mask-size: 100%;
+}
+
+/* basic markers — colour-glyph via SVG mask */
+[data-task="/"] .task-list-item-checkbox { --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='8' y='12.6' text-anchor='middle' font-size='15' font-family='Helvetica,Arial,sans-serif' font-weight='800'>◐</text></svg>"); background-color: var(--task-amber) !important; -webkit-mask-image: var(--g); mask-image: var(--g); }
+[data-task="-"] .task-list-item-checkbox { --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='8' y='12.6' text-anchor='middle' font-size='14' font-family='Helvetica,Arial,sans-serif' font-weight='800'>✕</text></svg>"); background-color: var(--task-muted) !important; -webkit-mask-image: var(--g); mask-image: var(--g); }
+[data-task=">"] .task-list-item-checkbox { --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='8' y='12.6' text-anchor='middle' font-size='15' font-family='Helvetica,Arial,sans-serif' font-weight='800'>→</text></svg>"); background-color: var(--task-teal) !important; -webkit-mask-image: var(--g); mask-image: var(--g); }
+[data-task="<"] .task-list-item-checkbox { --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='8' y='12.6' text-anchor='middle' font-size='15' font-family='Helvetica,Arial,sans-serif' font-weight='800'>←</text></svg>"); background-color: var(--task-teal) !important; -webkit-mask-image: var(--g); mask-image: var(--g); }
+
+/* done — recolour the native tick to ember + dim/strike the text */
+[data-task="x"] .task-list-item-checkbox,
+[data-task="X"] .task-list-item-checkbox {
+  background-color: var(--task-ember) !important;
+  border-color: var(--task-ember) !important;
+}
+
+/* reset any inherited strike, then apply it ONLY to done + canceled,
+   scoped to the item/line itself (no sibling combinators) */
+.markdown-rendered .task-list-item,
+.HyperMD-task-line { text-decoration: none; }
+
+[data-task="x"].task-list-item, [data-task="X"].task-list-item,
+.HyperMD-task-line[data-task="x"], .HyperMD-task-line[data-task="X"] {
+  color: var(--text-muted);
+  text-decoration: line-through;
+  text-decoration-color: var(--text-faint);
+}
+[data-task="-"].task-list-item,
+.HyperMD-task-line[data-task="-"] {
+  color: var(--text-faint);
+  text-decoration: line-through;
+}
+
+/* ---- Extras: colour-glyph via SVG mask ---------------------------------- */
+[data-task="?"] .task-list-item-checkbox { --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='8' y='12.6' text-anchor='middle' font-size='14' font-family='Helvetica,Arial,sans-serif' font-weight='800'>?</text></svg>"); background-color: var(--task-teal) !important; -webkit-mask-image: var(--g); mask-image: var(--g); }
+[data-task="!"] .task-list-item-checkbox { --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='8' y='12.6' text-anchor='middle' font-size='14' font-family='Helvetica,Arial,sans-serif' font-weight='800'>!</text></svg>"); background-color: var(--task-red) !important; -webkit-mask-image: var(--g); mask-image: var(--g); }
+[data-task="*"] .task-list-item-checkbox { --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='8' y='13' text-anchor='middle' font-size='15' font-family='Helvetica,Arial,sans-serif' font-weight='800'>★</text></svg>"); background-color: var(--task-amber) !important; -webkit-mask-image: var(--g); mask-image: var(--g); }
+[data-task='"'] .task-list-item-checkbox { --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='8' y='13' text-anchor='middle' font-size='15' font-family='Helvetica,Arial,sans-serif' font-weight='800'>“</text></svg>"); background-color: var(--task-muted) !important; -webkit-mask-image: var(--g); mask-image: var(--g); }
+[data-task="l"] .task-list-item-checkbox { --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='8' y='12.6' text-anchor='middle' font-size='14' font-family='Helvetica,Arial,sans-serif' font-weight='800'>◎</text></svg>"); background-color: var(--task-teal) !important; -webkit-mask-image: var(--g); mask-image: var(--g); }
+[data-task="b"] .task-list-item-checkbox { --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='8' y='12.6' text-anchor='middle' font-size='13' font-family='Helvetica,Arial,sans-serif' font-weight='800'>b</text></svg>"); background-color: var(--task-teal) !important; -webkit-mask-image: var(--g); mask-image: var(--g); }
+[data-task="i"] .task-list-item-checkbox { --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='8' y='12.6' text-anchor='middle' font-size='13' font-family='Helvetica,Arial,sans-serif' font-weight='800'>i</text></svg>"); background-color: var(--task-teal) !important; -webkit-mask-image: var(--g); mask-image: var(--g); }
+[data-task="S"] .task-list-item-checkbox { --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='8' y='12.6' text-anchor='middle' font-size='13' font-family='Helvetica,Arial,sans-serif' font-weight='800'>$</text></svg>"); background-color: var(--task-green) !important; -webkit-mask-image: var(--g); mask-image: var(--g); }
+[data-task="I"] .task-list-item-checkbox { --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='8' y='12.6' text-anchor='middle' font-size='13' font-family='Helvetica,Arial,sans-serif' font-weight='800'>I</text></svg>"); background-color: var(--task-amber) !important; -webkit-mask-image: var(--g); mask-image: var(--g); }
+[data-task="p"] .task-list-item-checkbox { --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='8' y='12.8' text-anchor='middle' font-size='16' font-family='Helvetica,Arial,sans-serif' font-weight='800'>+</text></svg>"); background-color: var(--task-green) !important; -webkit-mask-image: var(--g); mask-image: var(--g); }
+[data-task="c"] .task-list-item-checkbox { --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='8' y='12.8' text-anchor='middle' font-size='16' font-family='Helvetica,Arial,sans-serif' font-weight='800'>−</text></svg>"); background-color: var(--task-red) !important; -webkit-mask-image: var(--g); mask-image: var(--g); }
+[data-task="f"] .task-list-item-checkbox { --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='8' y='12.6' text-anchor='middle' font-size='13' font-family='Helvetica,Arial,sans-serif' font-weight='800'>f</text></svg>"); background-color: var(--task-red) !important; -webkit-mask-image: var(--g); mask-image: var(--g); }
+[data-task="k"] .task-list-item-checkbox { --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='8' y='12.6' text-anchor='middle' font-size='13' font-family='Helvetica,Arial,sans-serif' font-weight='800'>k</text></svg>"); background-color: var(--task-amber) !important; -webkit-mask-image: var(--g); mask-image: var(--g); }
+[data-task="w"] .task-list-item-checkbox { --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='8' y='12.6' text-anchor='middle' font-size='12' font-family='Helvetica,Arial,sans-serif' font-weight='800'>w</text></svg>"); background-color: var(--task-green) !important; -webkit-mask-image: var(--g); mask-image: var(--g); }
+[data-task="u"] .task-list-item-checkbox { --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='8' y='13' text-anchor='middle' font-size='15' font-family='Helvetica,Arial,sans-serif' font-weight='800'>↑</text></svg>"); background-color: var(--task-green) !important; -webkit-mask-image: var(--g); mask-image: var(--g); }
+[data-task="d"] .task-list-item-checkbox { --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='8' y='13' text-anchor='middle' font-size='15' font-family='Helvetica,Arial,sans-serif' font-weight='800'>↓</text></svg>"); background-color: var(--task-red) !important; -webkit-mask-image: var(--g); mask-image: var(--g); }
+[data-task="D"] .task-list-item-checkbox { --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='8' y='12.6' text-anchor='middle' font-size='13' font-family='Helvetica,Arial,sans-serif' font-weight='800'>D</text></svg>"); background-color: var(--task-muted) !important; -webkit-mask-image: var(--g); mask-image: var(--g); }
+[data-task="P"] .task-list-item-checkbox { --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='8' y='12.6' text-anchor='middle' font-size='13' font-family='Helvetica,Arial,sans-serif' font-weight='800'>P</text></svg>"); background-color: var(--task-green) !important; -webkit-mask-image: var(--g); mask-image: var(--g); }
+[data-task="M"] .task-list-item-checkbox { --g: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='8' y='12.6' text-anchor='middle' font-size='12' font-family='Helvetica,Arial,sans-serif' font-weight='800'>M</text></svg>"); background-color: var(--task-purple) !important; -webkit-mask-image: var(--g); mask-image: var(--g); }
