@@ -6,15 +6,47 @@ parchment in light mode, with an ember-orange accent. Palette inspired by
 
 ## Fonts
 
-| Role | Font |
-|------|------|
-| Body / UI | Hanken Grotesk |
-| Headings | Bricolage Grotesque |
-| Code | JetBrains Mono |
+Ember ships with **no bundled or remotely-loaded fonts** — it defaults to your
+system font stack, so it works fully offline with zero network calls. For the
+intended look, install the three recommended fonts locally (all are free and
+open-source) and point Obsidian at them.
 
-Loaded from Google Fonts via `@import` (needs internet on first load, then
-cached). Falls back to system fonts offline. To use locally-installed fonts
-instead, remove the `@import` line at the top of `theme.css`.
+| Role | Recommended font | Download |
+|------|------------------|----------|
+| Body / UI | Hanken Grotesk | [Google Fonts](https://fonts.google.com/specimen/Hanken+Grotesk) |
+| Headings | Bricolage Grotesque | [Google Fonts](https://fonts.google.com/specimen/Bricolage+Grotesque) |
+| Code | JetBrains Mono | [jetbrains.com/lp/mono](https://www.jetbrains.com/lp/mono/) · [GitHub releases](https://github.com/JetBrains/JetBrainsMono/releases) |
+
+### 1. Download
+
+From each link above, choose **Get font → Download all** (Google Fonts) or grab
+the release `.zip` (JetBrains Mono). You'll get a folder of `.ttf` / `.otf`
+files.
+
+### 2. Install on your OS
+
+- **macOS** — unzip, select all the font files, double-click and choose
+  **Install Font** (or drag them into the *Font Book* app).
+- **Windows** — unzip, select all the font files, right-click → **Install for
+  all users**.
+- **Linux** — copy the font files into `~/.local/share/fonts/` (or
+  `/usr/share/fonts/` for all users), then run `fc-cache -f`.
+
+Restart Obsidian after installing so it picks up the newly-available fonts.
+
+### 3. Tell Obsidian to use them
+
+Once Ember's **Style Settings** controls land you'll be able to set the text,
+heading, and monospace fonts from **Settings → Style Settings → Ember → Fonts**
+— type the exact font name (e.g. `Hanken Grotesk`, `Bricolage Grotesque`,
+`JetBrains Mono`).
+
+In the meantime you can set the base interface/text font under
+**Settings → Appearance → Font**, and the code font under
+**Settings → Appearance → Monospace font**.
+
+> If a named font isn't installed, the theme falls back to the system stack
+> automatically — nothing breaks, you just won't see that specific typeface.
 
 ## Palette
 
