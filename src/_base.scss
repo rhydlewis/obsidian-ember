@@ -477,28 +477,31 @@ code, pre,
   font-family: var(--ember-font-mono) !important;
 }
 
-/* ---- Tables: clear grid, scroll wide ones ------------------------------ */
-.markdown-rendered table {
-  border-collapse: collapse;
-  width: max-content;
-  max-width: 100%;
-}
-.markdown-rendered th,
-.markdown-rendered td {
-  border: 1px solid var(--ember-line);
-  padding: 0.4em 0.7em;
-  vertical-align: top;
-}
-.markdown-rendered thead th {
-  background: var(--ember-bg-alt);
-  font-weight: 600;
-}
-.markdown-rendered tbody tr:nth-child(even) td {
-  background: color-mix(in srgb, var(--ember-bg-alt) 45%, transparent);
-}
-.markdown-preview-view .table-wrapper,
-.markdown-rendered .table-wrapper {
-  overflow-x: auto;
+/* ---- Tables: clear grid, scroll wide ones (gated by Styled tables) ----- */
+body.ember-tables,
+body:not(.css-settings-manager) {
+  .markdown-rendered table {
+    border-collapse: collapse;
+    width: max-content;
+    max-width: 100%;
+  }
+  .markdown-rendered th,
+  .markdown-rendered td {
+    border: 1px solid var(--ember-line);
+    padding: 0.4em 0.7em;
+    vertical-align: top;
+  }
+  .markdown-rendered thead th {
+    background: var(--ember-bg-alt);
+    font-weight: 600;
+  }
+  .markdown-rendered tbody tr:nth-child(even) td {
+    background: color-mix(in srgb, var(--ember-bg-alt) 45%, transparent);
+  }
+  .markdown-preview-view .table-wrapper,
+  .markdown-rendered .table-wrapper {
+    overflow-x: auto;
+  }
 }
 
 /* ---- Ember flourishes -------------------------------------------------- */
@@ -510,7 +513,9 @@ code, pre,
   color: var(--ember-accent);
 }
 
-.tag {
+/* tags as pills (gated by Tags as pills) */
+body.ember-tags-pills .tag,
+body:not(.css-settings-manager) .tag {
   background: color-mix(in srgb, var(--ember-core) 12%, transparent);
   border: 1px solid color-mix(in srgb, var(--ember-core) 32%, transparent);
   color: var(--ember-accent);

@@ -13,6 +13,8 @@ Working backlog for the theme. Not shipped (releases attach only `theme.css` +
 
 ## Done
 
+- [x] Mobile — navbar/toolbar/sidebar drawer polish (src/_mobile.scss)
+- [x] Wire element toggles — tables + tags now gated (all element toggles live)
 - [x] Embeds — ember-accented cards via native --embed-* vars (src/_embeds.scss)
 - [x] List relationship lines — opt-in vertical guides (src/_lists.scss)
 - [x] Plugins — Dataview inline fields + Kanban board/cards (src/_plugins.scss);
@@ -24,11 +26,9 @@ Working backlog for the theme. Not shipped (releases attach only `theme.css` +
 - [x] Code-block syntax highlighting (src/_code.scss)
 - [x] UI chrome — modals, command palette, menus, settings, status bar (src/_chrome.scss)
 
-## Upcoming (planned Phase 3 styling — directed one at a time)
+## Upcoming
 
-- [ ] Mobile
-- [ ] Wire remaining element toggles (tables, tags) to their styling
-      (tasks, properties, callouts, code, embeds already gated)
+Phase 3 styling complete. Next is Phase 4 (below).
 
 ## Phase 4
 

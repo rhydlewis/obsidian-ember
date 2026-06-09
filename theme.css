@@ -480,31 +480,34 @@ code, pre,
   font-family: var(--ember-font-mono) !important;
 }
 
-/* ---- Tables: clear grid, scroll wide ones ------------------------------ */
-.markdown-rendered table {
+/* ---- Tables: clear grid, scroll wide ones (gated by Styled tables) ----- */
+body.ember-tables .markdown-rendered table,
+body:not(.css-settings-manager) .markdown-rendered table {
   border-collapse: collapse;
   width: max-content;
   max-width: 100%;
 }
-
-.markdown-rendered th,
-.markdown-rendered td {
+body.ember-tables .markdown-rendered th,
+body.ember-tables .markdown-rendered td,
+body:not(.css-settings-manager) .markdown-rendered th,
+body:not(.css-settings-manager) .markdown-rendered td {
   border: 1px solid var(--ember-line);
   padding: 0.4em 0.7em;
   vertical-align: top;
 }
-
-.markdown-rendered thead th {
+body.ember-tables .markdown-rendered thead th,
+body:not(.css-settings-manager) .markdown-rendered thead th {
   background: var(--ember-bg-alt);
   font-weight: 600;
 }
-
-.markdown-rendered tbody tr:nth-child(even) td {
+body.ember-tables .markdown-rendered tbody tr:nth-child(even) td,
+body:not(.css-settings-manager) .markdown-rendered tbody tr:nth-child(even) td {
   background: color-mix(in srgb, var(--ember-bg-alt) 45%, transparent);
 }
-
-.markdown-preview-view .table-wrapper,
-.markdown-rendered .table-wrapper {
+body.ember-tables .markdown-preview-view .table-wrapper,
+body.ember-tables .markdown-rendered .table-wrapper,
+body:not(.css-settings-manager) .markdown-preview-view .table-wrapper,
+body:not(.css-settings-manager) .markdown-rendered .table-wrapper {
   overflow-x: auto;
 }
 
@@ -517,7 +520,9 @@ code, pre,
   color: var(--ember-accent);
 }
 
-.tag {
+/* tags as pills (gated by Tags as pills) */
+body.ember-tags-pills .tag,
+body:not(.css-settings-manager) .tag {
   background: color-mix(in srgb, var(--ember-core) 12%, transparent);
   border: 1px solid color-mix(in srgb, var(--ember-core) 32%, transparent);
   color: var(--ember-accent);
@@ -1433,4 +1438,50 @@ body.ember-list-lines .HyperMD-list-line .cm-hmd-list-indent {
 .kanban-plugin__new-item-button:hover,
 .kanban-plugin__add-item-button:hover {
   color: var(--ember-accent);
+}
+
+.is-mobile {
+  --mobile-sidebar-background: var(--ember-surface);
+  --mobile-sidebar-radius: var(--radius-l);
+}
+
+/* Bottom navbar + editing toolbar surfaces */
+.is-mobile .mobile-navbar,
+.is-mobile .mobile-toolbar,
+.is-mobile .mobile-toolbar-options-container {
+  background-color: var(--ember-bg);
+  border-color: var(--ember-line);
+}
+
+/* Navbar actions: muted, accent when active */
+.is-mobile .mobile-navbar-action {
+  color: var(--ember-dim);
+}
+
+.is-mobile .mobile-navbar-action.is-active {
+  color: var(--ember-accent);
+}
+
+.is-mobile .mobile-navbar-tabs-number {
+  color: var(--ember-accent);
+}
+
+/* Editing toolbar buttons */
+.is-mobile .mobile-toolbar-option {
+  color: var(--ember-dim);
+}
+
+.is-mobile .mobile-toolbar-option:active,
+.is-mobile .mobile-toolbar-option.is-active {
+  color: var(--ember-accent);
+}
+
+/* Sidebar drawer */
+.is-mobile .workspace-drawer {
+  background-color: var(--mobile-sidebar-background);
+  border-radius: 0 var(--mobile-sidebar-radius) var(--mobile-sidebar-radius) 0;
+}
+
+.is-mobile .workspace-drawer.mod-right {
+  border-radius: var(--mobile-sidebar-radius) 0 0 var(--mobile-sidebar-radius);
 }
