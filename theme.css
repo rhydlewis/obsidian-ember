@@ -180,6 +180,12 @@ settings:
         type: class-toggle
         default: false
     -
+        id: ember-dashboard
+        title: Dashboard tiles
+        description: 'Card/pill styling for notes with the `dashboard` cssclass. Layout applies regardless; this toggles the decorative look. Adapted from TfT Hacker.'
+        type: class-toggle
+        default: true
+    -
         id: ember-properties-heading
         title: Properties
         description: 'Styling for the frontmatter / properties block at the top of notes.'
@@ -1598,6 +1604,120 @@ body.ember-list-lines {
 }
 body.ember-list-lines .HyperMD-list-line .cm-hmd-list-indent {
   box-shadow: inset 1px 0 0 0 var(--ember-line);
+}
+
+.dashboard {
+  font-family: inherit;
+  padding-left: 25px !important;
+  padding-right: 25px !important;
+  padding-top: 20px !important;
+}
+
+.dashboard .markdown-preview-section {
+  max-width: 100%;
+}
+
+/* Hide the properties box on the dashboard only */
+.dashboard .metadata-container {
+  display: none !important;
+}
+
+/* Title pinned to the top of the document */
+.dashboard .markdown-preview-section .title {
+  top: 60px;
+  position: absolute;
+  font-size: 26pt !important;
+  font-weight: bolder;
+  letter-spacing: 8px;
+}
+
+/* Drop the parent bullet and indentation guides */
+.dashboard div.markdown-preview-section > div > ul > li > .list-bullet {
+  display: none !important;
+}
+
+.dashboard.markdown-rendered.show-indentation-guide li > ul::before,
+.dashboard.markdown-rendered.show-indentation-guide li > ol::before {
+  display: none;
+}
+
+.dashboard div.markdown-preview-section > div > ul.has-list-bullet > li {
+  padding-left: 24px !important;
+}
+
+/* Top-level list → row of cards */
+.dashboard div > ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  flex-flow: row wrap;
+}
+
+.dashboard div > ul > li {
+  min-width: 250px;
+  /* 3 tiles + 2 gaps span 90% of the row width */
+  width: calc((90% - 40px) / 3);
+}
+
+/* Second-level list → row of pills */
+.dashboard div > ul > li > ul {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 8px;
+  margin-top: 14px;
+  padding-left: 0 !important;
+}
+
+.dashboard div > ul > li > ul > li {
+  list-style: none;
+  width: auto;
+  min-width: 0;
+}
+
+.dashboard div > ul > li > ul > li a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Hide the bullet on second-level entries */
+.dashboard div > ul > li > ul > li > .list-bullet {
+  display: none !important;
+}
+
+/* Dataview support */
+.dashboard ul.dataview {
+  row-gap: 0px !important;
+  list-style-type: disc !important;
+}
+
+body.ember-dashboard .dashboard h1, body:not(.css-settings-manager) .dashboard h1 {
+  border-bottom-style: dotted !important;
+  border-width: 1px !important;
+  padding-bottom: 3px !important;
+}
+body.ember-dashboard .dashboard div > ul > li, body:not(.css-settings-manager) .dashboard div > ul > li {
+  padding: 22px 24px !important;
+  font-weight: 600;
+  color: var(--ember-core);
+  background-color: var(--ember-bg-alt);
+  border: 1px solid var(--ember-line);
+  border-left: 4px solid var(--ember-core);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-s);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+body.ember-dashboard .dashboard div > ul > li:hover, body:not(.css-settings-manager) .dashboard div > ul > li:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-l);
+}
+body.ember-dashboard .dashboard div > ul > li > ul > li, body:not(.css-settings-manager) .dashboard div > ul > li > ul > li {
+  padding: 4px 12px !important;
+  font-weight: 400;
+  font-size: 0.85em;
+  color: var(--text-normal);
+  background-color: var(--ember-bg);
+  border: 1px solid var(--ember-line);
+  border-radius: 999px;
 }
 
 /* ---- Dataview ----------------------------------------------------------

@@ -3,6 +3,15 @@
 All notable changes to Ember are documented here. Versions follow
 [semantic versioning](https://semver.org).
 
+## 1.1.0
+
+### Added
+- Dashboard support: notes with `cssclasses: dashboard` render top-level list
+  items as cards and second-level items as pills. Layout is unconditional; the
+  decorative tile/pill look is gated by the new `Dashboard tiles` Style Settings
+  toggle (Elements, on by default). Built on Ember's palette tokens; adapted
+  from the dashboard solution by TfT Hacker.
+
 ## 1.0.1
 
 Addresses Obsidian community-review feedback.

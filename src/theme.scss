@@ -14,6 +14,7 @@
 @use 'chrome';      // modals, command palette, menus, settings, status bar
 @use 'embeds';      // embedded notes / file / image embeds
 @use 'lists';       // list relationship lines (opt-in)
+@use 'dashboard';   // dashboard cssclass — tiled launchpad (opt-in)
 @use 'plugins';     // Dataview, Kanban
 @use 'mobile';      // phone / tablet chrome
 @use 'print';       // light palette for PDF export

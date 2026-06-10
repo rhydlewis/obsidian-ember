@@ -180,6 +180,12 @@ settings:
         type: class-toggle
         default: false
     -
+        id: ember-dashboard
+        title: Dashboard tiles
+        description: 'Card/pill styling for notes with the `dashboard` cssclass. Layout applies regardless; this toggles the decorative look. Adapted from TfT Hacker.'
+        type: class-toggle
+        default: true
+    -
         id: ember-properties-heading
         title: Properties
         description: 'Styling for the frontmatter / properties block at the top of notes.'
