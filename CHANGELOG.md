@@ -3,6 +3,13 @@
 All notable changes to Ember are documented here. Versions follow
 [semantic versioning](https://semver.org).
 
+## 1.1.1
+
+### Changed
+- List markers (unordered bullets and ordered numbers) now render in the core
+  ember colour via `--list-marker-color`, in both reading view and live
+  preview. Adapts across light/dark and the bundled Catppuccin/Nord schemes.
+
 ## 1.1.0
 
 ### Added

@@ -390,6 +390,9 @@ body {
   --link-color-hover:          var(--ember-accent-hi);
   --link-unresolved-color:     var(--ember-dim);
 
+  /* list bullets / numbers glow ember */
+  --list-marker-color:         var(--ember-core);
+
   /* selection / highlight */
   --text-selection:    var(--ember-sel);
   --text-highlight-bg: color-mix(in srgb, var(--ember-warn) 30%, transparent);
