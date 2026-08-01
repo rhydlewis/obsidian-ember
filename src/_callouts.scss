@@ -60,8 +60,8 @@ body:not(.css-settings-manager).theme-light {
 
     margin-block: var(--size-4-3);
     border-radius: var(--radius-m);
-    border-inline-start: 3px solid rgb(var(--callout-color));
-    background-color: rgba(var(--callout-color), 0.07);
+    border-inline-start: 3px solid var(--callout-color);
+    background-color: color-mix(in srgb, var(--callout-color) 7%, transparent);
     mix-blend-mode: normal;
   }
 
@@ -69,13 +69,13 @@ body:not(.css-settings-manager).theme-light {
      uses --callout-color; we reinforce weight/spacing). */
   .callout-title {
     padding: var(--size-4-2) var(--size-4-3);
-    background-color: rgba(var(--callout-color), 0.10);
+    background-color: color-mix(in srgb, var(--callout-color) 10%, transparent);
     font-weight: 600;
   }
-  .callout-title-inner { color: rgb(var(--callout-color)); }
+  .callout-title-inner { color: var(--callout-color); }
   .callout-icon,
-  .callout-icon .svg-icon { color: rgb(var(--callout-color)); }
-  .callout-fold { color: rgb(var(--callout-color)); }
+  .callout-icon .svg-icon { color: var(--callout-color); }
+  .callout-fold { color: var(--callout-color); }
 
   .callout-content { padding: var(--size-4-2) var(--size-4-3); }
 }
